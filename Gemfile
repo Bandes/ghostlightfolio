@@ -65,4 +65,6 @@ gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 gem 'rexml'
 gem 'rubocop', require: false
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
+gem 'simple_form'
+gem 'simple_form-tailwind'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

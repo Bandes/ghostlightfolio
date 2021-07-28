@@ -1,0 +1,22 @@
+.w-full.mx-auto.my-8.text-xl.font-bold
+  Add Person
+.w-full.lg
+  .bg-white.shadow-md.rounded.my-6
+    %table.min-w-max.w-full.table-auto
+      %thead
+        %tr.bg-gray-200.text-gray-600.uppercase.text-sm.leading-normal
+          %th.py-3.px-6.text-left
+            Name
+          %th.py-3.px-6.text-left
+            Email
+          %th.py-3.px-6.text-left
+            Phone
+      %tbody.text-gray-600.text-sm.font-light
+        - people.each do |person|
+          %tr.border-b.border-gray-200.hover
+            %td.py-3.px-6.text-left.whitespace-nowrap
+              = person.name.full
+            %td.py-3.px-6.text-left.whitespace-nowrap
+              = person.email
+            %td.py-3.px-6.text-left.whitespace-nowrap
+              = person.phone
