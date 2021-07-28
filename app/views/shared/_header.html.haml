@@ -2,7 +2,7 @@
   %header.mb-4
     %nav.flex.flex-wrap.items-center.justify-between.px-3.py-3.text-gray-700.bg-gray-100.lg:px-10
       .flex.items-center.mr-6.flex-no-shrink
-        = link_to "Kickoff", root_path, class:"link text-xl tracking-tight font-black"
+        = link_to "SMToolkit", root_path, class:"link text-xl tracking-tight font-black"
       .block.lg:hidden
         %button.flex.items-center.px-3.py-2.border.border-gray-500.rounded.text-grey.hover:text-gray-600.hover:border-gray-600
           %svg.w-3.h-3.fill-current{viewbox: "0 0 20 20", xmlns: "http://www.w3.org/2000/svg"}
@@ -10,7 +10,7 @@
             %path{d: "M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"}
       .items-center.block.w-full.text-center.lg:flex-1.lg:flex.lg:text-left
         .lg:flex-grow
-          = link_to "Basic Link", "#", class: "block mt-4 lg:inline-block lg:mt-0 lg:mr-4 mb-2 lg:mb-0 link"
+          = link_to "People", people_path, class: "block mt-4 lg:inline-block lg:mt-0 lg:mr-4 mb-2 lg:mb-0 link"
         .items-center.block.w-full.mt-2.text-center.lg:flex.lg:flex-row.lg:flex-1.lg:mt-0.lg:text-left.lg:justify-end
           - if user_signed_in?
             = link_to "Edit account", edit_user_registration_path, class: "btn btn-default mb-2 lg:mr-2 lg:mb-0 block"

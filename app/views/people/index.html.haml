@@ -1,5 +1,7 @@
 .w-full.mx-auto.my-8.text-xl.font-bold
-  Add Person
+  %span.float-left
+    People
+  = link_to 'Add Person', new_person_path, class: 'float-right bg-blue-400 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded'
 .w-full.lg
   .bg-white.shadow-md.rounded.my-6
     %table.min-w-max.w-full.table-auto
@@ -11,12 +13,8 @@
             Email
           %th.py-3.px-6.text-left
             Phone
+          %th.py-3.px-6.text-left
+            Actions
       %tbody.text-gray-600.text-sm.font-light
         - people.each do |person|
-          %tr.border-b.border-gray-200.hover
-            %td.py-3.px-6.text-left.whitespace-nowrap
-              = person.name.full
-            %td.py-3.px-6.text-left.whitespace-nowrap
-              = person.email
-            %td.py-3.px-6.text-left.whitespace-nowrap
-              = person.phone
+          = render partial: 'person', locals: { person: person }

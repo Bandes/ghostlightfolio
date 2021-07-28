@@ -59,6 +59,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
 gem 'haml'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
