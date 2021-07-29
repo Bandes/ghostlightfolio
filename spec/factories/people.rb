@@ -25,6 +25,6 @@ FactoryBot.define do
     last_name { "MyString" }
     email { "MyString" }
     phone { "MyString" }
-    user { nil }
+    user
   end
 end

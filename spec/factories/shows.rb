@@ -19,7 +19,7 @@
 #
 FactoryBot.define do
   factory :show do
-    user { nil }
+    user
     name { "MyString" }
     author { "MyString" }
   end
