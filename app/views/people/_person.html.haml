@@ -1,0 +1,12 @@
+%tr.border-b.border-gray-200.hover
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = person.name.full
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = link_to person.email, "mailto:#{person.email}"
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = person.phone
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = link_to edit_person_path(person), title: 'Edit' do
+      %i.fas.fa-edit
+    = link_to person_path(person), method: 'delete', data: { confirm: 'Are you sure?' } do
+      %i.fas.fa-trash
