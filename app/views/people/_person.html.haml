@@ -2,7 +2,7 @@
   %td.py-3.px-6.text-left.whitespace-nowrap
     = person.name.full
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = person.email
+    = link_to person.email, "mailto:#{person.email}"
   %td.py-3.px-6.text-left.whitespace-nowrap
     = person.phone
   %td.py-3.px-6.text-left.whitespace-nowrap
