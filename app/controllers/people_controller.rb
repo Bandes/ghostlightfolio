@@ -22,7 +22,7 @@ class PeopleController < ApplicationController
     if person.update(person_params)
       redirect_to people_path
     else
-      render :edit
+      render :edit, locals: { person: person }
     end
   end
 
@@ -44,11 +44,8 @@ class PeopleController < ApplicationController
   def destroy
     person = current_user.people.find(params[:id])
 
-    if person.destroy
-      redirect_to people_path, notice: 'Person successfully deleted'
-    else
-      redirect_to people_path, alert: 'Could not delete person'
-    end  
+    person.destroy!
+    redirect_to people_path, notice: 'Person successfully deleted'
   end
 
   def person_params
