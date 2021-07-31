@@ -1,0 +1,12 @@
+%tr.border-b.border-gray-200.hover
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = location.name
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = location.address
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = location.capacity
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = link_to edit_location_path(location), title: 'Edit' do
+      %i.fas.fa-edit
+    = link_to location_path(location), method: 'delete', data: { confirm: 'Are you sure?' } do
+      %i.fas.fa-trash

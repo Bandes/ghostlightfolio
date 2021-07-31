@@ -21,5 +21,9 @@
 require 'rails_helper'
 
 RSpec.describe Location, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'validates name' do
+    location = build(:location, name: nil)
+    expect(location.valid?).to be false
+    expect(location.errors.full_messages).to include("Name can't be blank")
+  end
 end
