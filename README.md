@@ -1,24 +1,12 @@
-# README
+# SMToolkit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What is it?
+SMToolkit is a simple application designed to help theatrical stage managers and directors keep track of the various aspects of the shows they work on.
 
-Things you may want to cover:
+Eventually SMToolkit will support a wide variety of resources.
 
-* Ruby version
+## Technologies
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby 3.0.2
+* Rails 6.1.4
+* Tailwind CSS
