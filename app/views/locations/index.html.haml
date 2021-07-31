@@ -1,0 +1,20 @@
+.w-full.mx-auto.my-8.text-xl.font-bold
+  %span.float-left
+    Locations
+  = link_to 'Add Location', new_location_path, class: 'btn btn-default mb-2 lg:mr-2 lg:mb-0 float-right'
+.w-full.lg
+  .bg-white.shadow-md.rounded.my-6
+    %table.min-w-max.w-full.table-auto
+      %thead
+        %tr.bg-gray-200.text-gray-600.uppercase.text-sm.leading-normal
+          %th.py-3.px-6.text-left
+            Name
+          %th.py-3.px-6.text-left
+            Address
+          %th.py-3.px-6.text-left
+            Capacity
+          %th.py-3.px-6.text-left
+            Actions
+      %tbody.text-gray-600.text-sm.font-light
+        - locations.each do |location|
+          = render partial: 'location', locals: { location: location }

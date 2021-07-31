@@ -1,0 +1,19 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'spec/**/*'
+    - 'config/**/*'
+    - 'node_modules/**/*'
+    - 'bin/**/*'
+    - 'lib/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - '.git/**/*'
+    - 'Rakefile'
+    - 'Procfile'
+    - 'Gemfil*'
+  NewCops: enable
+  TargetRubyVersion: 3.0.2
+
+Style/Documentation: 
+  Enabled: false
