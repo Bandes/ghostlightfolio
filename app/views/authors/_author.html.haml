@@ -8,10 +8,6 @@
   %td.py-3.px-6.text-left.whitespace-nowrap
     = author.lgbt
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = author.birth_year
-  %td.py-3.px-6.text-left.whitespace-nowrap
-    = author.death_year
-  %td.py-3.px-6.text-left.whitespace-nowrap
     = link_to edit_author_path(author), title: 'Edit' do
       %i.fas.fa-edit
     = link_to author_path(author), method: 'delete', data: { confirm: 'Are you sure?' } do

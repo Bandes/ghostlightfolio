@@ -3,8 +3,6 @@
 # Table name: authors
 #
 #  id              :bigint           not null, primary key
-#  birth_year      :date
-#  death_year      :date
 #  ethnicity       :string
 #  first_name      :string
 #  gender_identity :string
