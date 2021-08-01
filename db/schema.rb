@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_234927) do
+ActiveRecord::Schema.define(version: 2021_08_01_123827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,20 @@ ActiveRecord::Schema.define(version: 2021_07_26_234927) do
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
+  create_table "productions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "location_id", null: false
+    t.string "name"
+    t.date "closing"
+    t.date "opening"
+    t.date "rehearsal"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_productions_on_location_id"
+    t.index ["user_id"], name: "index_productions_on_user_id"
+  end
+
   create_table "shows", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
@@ -73,5 +87,7 @@ ActiveRecord::Schema.define(version: 2021_07_26_234927) do
 
   add_foreign_key "locations", "users"
   add_foreign_key "people", "users"
+  add_foreign_key "productions", "locations"
+  add_foreign_key "productions", "users"
   add_foreign_key "shows", "users"
 end

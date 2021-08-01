@@ -21,6 +21,14 @@
 require 'rails_helper'
 
 RSpec.describe Location, type: :model do
+  it 'validates uniqueness of name within user scope' do
+    location1 = create(:location)
+    location2 = build(:location, name: location1.name, user: location1.user)
+
+    expect(location2.valid?).to be false
+    expect(location2.errors.full_messages).to include('Name has already been taken')
+  end
+
   it 'validates name' do
     location = build(:location, name: nil)
     expect(location.valid?).to be false
