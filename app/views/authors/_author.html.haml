@@ -1,16 +1,18 @@
 %tr.border-b.border-gray-200.hover
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = show.name
+    = author.name.full
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = show.author.name.full
+    = author.gender_identity
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = show.year_written
+    = author.ethnicity
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = show.copyright_year
+    = author.lgbt
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = show.public_domain
+    = author.birth_year
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = link_to edit_show_path(show), title: 'Edit' do
+    = author.death_year
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = link_to edit_author_path(author), title: 'Edit' do
       %i.fas.fa-edit
-    = link_to show_path(show), method: 'delete', data: { confirm: 'Are you sure?' } do
+    = link_to author_path(author), method: 'delete', data: { confirm: 'Are you sure?' } do
       %i.fas.fa-trash

@@ -9,6 +9,7 @@
 #  first_name      :string
 #  gender_identity :string
 #  last_name       :string
+#  lgbt            :boolean
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -44,5 +45,17 @@ RSpec.describe Author, type: :model do
     author = create(:author, first_name: 'George', last_name: 'Washington')
     also_unique_author = build(:author, first_name: 'George', last_name: 'Jetson')
     expect(also_unique_author.valid?).to be true
+  end
+
+  describe 'bipoc?' do
+    it 'is false if white' do
+      author = create(:author, ethnicity: Constants::ETHNICITIES[:white])
+      expect(author.bipoc?).to be false
+    end
+
+    it 'is true if latinx' do
+      author = create(:author, ethnicity: Constants::ETHNICITIES[:latinx])
+      expect(author.bipoc?).to be true
+    end
   end
 end
