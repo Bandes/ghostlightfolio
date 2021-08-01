@@ -2,14 +2,22 @@
 #
 # Table name: people
 #
-#  id         :bigint           not null, primary key
-#  email      :string
-#  first_name :string
-#  last_name  :string
-#  phone      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  id              :bigint           not null, primary key
+#  age             :integer
+#  email           :string
+#  ethnicity       :string
+#  first_name      :string
+#  gender_identity :string
+#  last_name       :string
+#  lgbt            :boolean          default(FALSE)
+#  notes           :string
+#  phone           :string
+#  strong_dancer   :boolean          default(FALSE)
+#  strong_singer   :boolean          default(FALSE)
+#  vocal_range     :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :bigint           not null
 #
 # Indexes
 #

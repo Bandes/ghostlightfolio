@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_134859) do
+ActiveRecord::Schema.define(version: 2021_08_01_175900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender_identity"
+    t.date "birth_year"
+    t.date "death_year"
+    t.string "ethnicity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -44,6 +55,14 @@ ActiveRecord::Schema.define(version: 2021_08_01_134859) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "gender_identity"
+    t.integer "age"
+    t.boolean "strong_dancer", default: false
+    t.boolean "strong_singer", default: false
+    t.string "vocal_range"
+    t.boolean "lgbt", default: false
+    t.string "ethnicity"
+    t.string "notes"
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
@@ -62,23 +81,33 @@ ActiveRecord::Schema.define(version: 2021_08_01_134859) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.bigint "production_id", null: false
     t.bigint "person_id", null: false
     t.string "name"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "gender_identity"
+    t.integer "age_min"
+    t.integer "age_max"
+    t.boolean "strong_dancer", default: false
+    t.boolean "strong_singer", default: false
+    t.string "ethnicity"
+    t.boolean "lgbt", default: false
+    t.bigint "show_id"
     t.index ["person_id"], name: "index_roles_on_person_id"
-    t.index ["production_id"], name: "index_roles_on_production_id"
+    t.index ["show_id"], name: "index_roles_on_show_id"
   end
 
   create_table "shows", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.string "name"
-    t.string "author"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_shows_on_user_id"
+    t.bigint "author_id"
+    t.date "copyright_year"
+    t.date "year_written"
+    t.boolean "public_domain"
+    t.string "description"
+    t.index ["author_id"], name: "index_shows_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,6 +130,6 @@ ActiveRecord::Schema.define(version: 2021_08_01_134859) do
   add_foreign_key "productions", "locations"
   add_foreign_key "productions", "shows"
   add_foreign_key "roles", "people"
-  add_foreign_key "roles", "productions"
-  add_foreign_key "shows", "users"
+  add_foreign_key "roles", "shows"
+  add_foreign_key "shows", "authors"
 end
