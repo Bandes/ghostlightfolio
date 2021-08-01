@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class LocationsController < ApplicationController
-  
   before_action :authenticate_user!
 
   def index

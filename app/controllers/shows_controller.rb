@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ShowsController < ApplicationController
-  
   before_action :authenticate_user!
 
   def index

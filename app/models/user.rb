@@ -33,5 +33,4 @@ class User < ApplicationRecord
   has_many :shows, dependent: :destroy
   has_many :people, dependent: :destroy
   has_many :productions, through: :shows
-
 end

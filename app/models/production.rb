@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: productions
@@ -11,21 +13,21 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  location_id :bigint           not null
-#  user_id     :bigint           not null
+#  show_id     :bigint           not null
 #
 # Indexes
 #
 #  index_productions_on_location_id  (location_id)
-#  index_productions_on_user_id      (user_id)
+#  index_productions_on_show_id      (show_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (location_id => locations.id)
-#  fk_rails_...  (user_id => users.id)
+#  fk_rails_...  (show_id => shows.id)
 #
 class Production < ApplicationRecord
-  belongs_to :user
+  belongs_to :show
   belongs_to :location
 
-  validates :name, uniqueness: { scope: :user }, presence: true
+  validates :name, uniqueness: { scope: :show }, presence: true
 end
