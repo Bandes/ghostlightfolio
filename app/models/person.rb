@@ -26,4 +26,5 @@ class Person < ApplicationRecord
   belongs_to :user
 
   validates :first_name, :last_name, presence: true
+  validates :email, uniqueness: { scope: :user }, presence: true
 end
