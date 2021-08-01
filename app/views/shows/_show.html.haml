@@ -1,0 +1,10 @@
+%tr.border-b.border-gray-200.hover
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = show.name
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = show.author
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = link_to edit_show_path(show), title: 'Edit' do
+      %i.fas.fa-edit
+    = link_to show_path(show), method: 'delete', data: { confirm: 'Are you sure?' } do
+      %i.fas.fa-trash
