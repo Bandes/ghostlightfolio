@@ -2,7 +2,13 @@
   %td.py-3.px-6.text-left.whitespace-nowrap
     = show.name
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = show.author
+    = show.author.name.full
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = show.year_written
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = show.copyright_year
+  %td.py-3.px-6.text-left.whitespace-nowrap
+    = show.public_domain
   %td.py-3.px-6.text-left.whitespace-nowrap
     = link_to edit_show_path(show), title: 'Edit' do
       %i.fas.fa-edit

@@ -2,27 +2,30 @@
 #
 # Table name: shows
 #
-#  id         :bigint           not null, primary key
-#  author     :string
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  id             :bigint           not null, primary key
+#  copyright_year :date
+#  description    :string
+#  name           :string
+#  public_domain  :boolean
+#  year_written   :date
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  author_id      :bigint
 #
 # Indexes
 #
-#  index_shows_on_user_id  (user_id)
+#  index_shows_on_author_id  (author_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (user_id => users.id)
+#  fk_rails_...  (author_id => authors.id)
 #
 require 'rails_helper'
 
 RSpec.describe Show, type: :model do
   it 'validates uniqueness of name within user scope' do
     show1 = create(:show)
-    show2 = build(:show, name: show1.name, user: show1.user)
+    show2 = build(:show, name: show1.name)
 
     expect(show2.valid?).to be false
     expect(show2.errors.full_messages).to include('Name has already been taken')

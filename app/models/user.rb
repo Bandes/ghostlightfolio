@@ -30,8 +30,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :locations, dependent: :destroy
-  has_many :shows, dependent: :destroy
   has_many :people, dependent: :destroy
-  has_many :productions, through: :shows
-
 end

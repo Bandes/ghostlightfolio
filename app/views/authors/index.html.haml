@@ -1,7 +1,7 @@
 .w-full.mx-auto.my-8.text-xl.font-bold
   %span.float-left
-    Shows
-  = link_to 'Add Show', new_show_path, class: 'btn btn-default mb-2 lg:mr-2 lg:mb-0 float-right'
+    Authors
+  = link_to 'Add Author', new_author_path, class: 'btn btn-default mb-2 lg:mr-2 lg:mb-0 float-right'
 .w-full.lg
   .bg-white.shadow-md.rounded.my-6
     %table.min-w-max.w-full.table-auto
@@ -10,15 +10,13 @@
           %th.py-3.px-6.text-left
             Name
           %th.py-3.px-6.text-left
-            Author
+            Gender Identity
           %th.py-3.px-6.text-left
-            Year Written
+            Ethnicity
           %th.py-3.px-6.text-left
-            Copyright Year
-          %th.py-3.px-6.text-left
-            Public Domain
+            LGBT
           %th.py-3.px-6.text-left
             Actions
       %tbody.text-gray-600.text-sm.font-light
-        - shows.each do |show|
-          = render partial: 'show', locals: { show: show }
+        - authors.each do |author|
+          = render partial: 'author', locals: { author: author }

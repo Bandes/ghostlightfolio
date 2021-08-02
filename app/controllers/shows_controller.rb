@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class ShowsController < ApplicationController
-  
   before_action :authenticate_user!
 
   def index
-    shows = current_user.shows
+    shows = Show.all
 
     render locals: { shows: shows }
   end
@@ -17,17 +16,17 @@ class ShowsController < ApplicationController
   end
 
   def update
-    show = current_user.shows.find(params[:id])
+    show = Show.find(params[:id])
 
-    if show.update(show_params)
-      redirect_to shows_path
+    if show.update(name: show_params[:name])
+      redirect_to shows_path, notice: 'Show edited successfully'
     else
       render :edit, locals: { show: show }
     end
   end
 
   def create
-    show = current_user.shows.build(show_params)
+    show = Show.new(show_params)
     if show.save
       redirect_to shows_path, notice: 'Show created successfully'
     else
@@ -36,19 +35,19 @@ class ShowsController < ApplicationController
   end
 
   def edit
-    show = current_user.shows.find(params[:id])
+    show = Show.find(params[:id])
 
     render locals: { show: show }
   end
 
   def destroy
-    show = current_user.shows.find(params[:id])
+    show = Show.find(params[:id])
 
     show.destroy!
     redirect_to shows_path, notice: 'Show successfully deleted'
   end
 
   def show_params
-    params.require(:show).permit(:author, :name)
+    params.require(:show).permit(:author_id, :name)
   end
 end

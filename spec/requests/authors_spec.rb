@@ -1,78 +1,74 @@
 require 'rails_helper'
 
-RSpec.describe "Shows", type: :request do
+RSpec.describe "Authors", type: :request do
 
   describe 'When not logged in' do
     it 'index will redirect to login screen' do
-      get shows_path
+      get authors_path
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(new_user_session_path)
     end
   end
 
-  describe "GET /shows" do
+  describe "GET /authors" do
     it '#index will render the index template' do
       user = create(:user)
-
       sign_in user
 
-      get shows_path
+      get authors_path
       expect(response).to have_http_status(200)
       expect(response).to render_template :index
     end
 
     it '#edit will render the edit template' do
       user = create(:user)
-
       sign_in user
 
-      show = create(:show)
-      get edit_show_path(show)
+      author = create(:author)
+      get edit_author_path(author)
       expect(response).to have_http_status(200)
       expect(response).to render_template :edit
     end
 
     it '#new will render the new template' do
       user = create(:user)
-
       sign_in user
 
-      get new_show_path
+      get new_author_path
       expect(response).to have_http_status(200)
       expect(response).to render_template :new
     end
 
     describe '#create' do
-      it 'will create a new show when given good data' do
+      it 'will create a new author when given good data' do
         user = create(:user)
-        author = create(:author)
-
         sign_in user
 
         params = {
-          show: {
-            name: 'Lady Wolfman',
-            author_id: author.id
+          author: {
+            first_name: 'William',
+            last_name: 'Shakespeare',
+            gender_identity: 'male',
+            ethnicity: 'white',
           }
         }
 
-        expect{ post shows_path, params: params }.to change{ Show.count }.by 1
+        expect{ post authors_path, params: params }.to change{ Author.count }.by 1
       end
 
       it 'will render :new when given invalid data' do
         user = create(:user)
-
         sign_in user
 
         params = {
-          show: {
-            name: nil,
-            author_id: nil,
+          author: {
+            first_name: nil,
+            last_name: nil
           }
         }
 
-        post shows_path, params: params
+        post authors_path, params: params
 
         expect(response).to render_template(:new)
 
@@ -80,53 +76,49 @@ RSpec.describe "Shows", type: :request do
     end
 
     describe '#update' do
-      it 'will update a show when given good data' do
+      it 'will update a author when given good data' do
         user = create(:user)
-
         sign_in user
 
-        show = create(:show)
         author = create(:author)
 
         params = {
-          show: {
-            name: 'Playmobil Opera',
+          author: {
+            first_name: 'William',
+            last_name: 'Shakespeare'
           }
         }
 
-        put show_path(show), params: params
+        put author_path(author), params: params
 
-        show.reload
-        expect(show.name).to eq 'Playmobil Opera'
+        author.reload
+        expect(author.name.full).to eq 'William Shakespeare'
       end
 
       it 'will render :edit when given invalid data' do
         user = create(:user)
-        author = create(:author)
-
         sign_in user
 
-        show = create(:show)
+        author = create(:author)
 
         params = {
-          show: {
-            name: nil,
+          author: {
+            first_name: nil,
           }
         }
-        put show_path(show), params: params
+        put author_path(author), params: params
         expect(response).to render_template(:edit)
 
       end
     end
 
-    it '#delete will delete a show' do
+    it '#delete will delete a author' do
       user = create(:user)
-
       sign_in user
 
-      show = create(:show)
+      author = create(:author)
 
-      expect{ delete show_path(show) }.to change{ Show.count }.by -1
+      expect{ delete author_path(author) }.to change{ Author.count }.by -1
     end
   end
 end
