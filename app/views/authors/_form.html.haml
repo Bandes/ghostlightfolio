@@ -1,7 +1,7 @@
 = simple_form_for author do |f|
   = f.input :first_name
   = f.input :last_name
-  = f.input :gender_identity, as: :select, collection: Constants::GENDER_IDENTITIES.map { |key, value| [value, key] }
-  = f.input :ethnicity, as: :select, collection: Constants::ETHNICITIES.map { |key, value| [value, key] }
+  = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select
+  = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select
   = f.input :lgbt
   = f.button :submit
