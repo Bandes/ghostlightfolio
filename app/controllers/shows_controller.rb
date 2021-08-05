@@ -18,7 +18,7 @@ class ShowsController < ApplicationController
   def update
     show = Show.find(params[:id])
 
-    if show.update(name: show_params[:name])
+    if show.update(show_params)
       redirect_to shows_path, notice: 'Show edited successfully'
     else
       render :edit, locals: { show: show }
@@ -48,6 +48,6 @@ class ShowsController < ApplicationController
   end
 
   def show_params
-    params.require(:show).permit(:author_id, :name)
+    params.require(:show).permit(:author_id, :name, :year_written, :copyright_year, :public_domain)
   end
 end

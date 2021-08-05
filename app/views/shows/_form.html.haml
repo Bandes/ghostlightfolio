@@ -1,6 +1,6 @@
 = simple_form_for show do |f|
   = f.input :name
-  = f.input :author, as: :select, collection: Author.names
+  = f.input :author_id, as: :select, collection: Author.names
   = f.input :year_written, as: :date, html5: true 
   = f.input :copyright_year, as: :date, html5: true 
   = f.input :public_domain
