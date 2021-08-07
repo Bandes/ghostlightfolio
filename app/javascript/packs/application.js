@@ -14,6 +14,5 @@ import "stylesheets/application"
 import "@fortawesome/fontawesome-free/css/all"
 import 'alpine-turbo-drive-adapter'
 import 'alpinejs'
-import 'jquery'
 
 import "controllers"
