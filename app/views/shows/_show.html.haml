@@ -10,7 +10,7 @@
   %td.py-3.px-6.text-left.whitespace-nowrap
     = show.public_domain
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = link_to edit_show_path(show), title: 'Edit' do
+    = link_to edit_show_path(show), title: 'Edit', data: { turbo_frame: 'details' } do
       %i.fas.fa-edit
     = link_to show_path(show), method: 'delete', data: { confirm: 'Are you sure?' } do
       %i.fas.fa-trash

@@ -17,4 +17,5 @@
       = f.submit "Change my password", class: "btn btn-default"
   %hr.mt-6.border/
   = render "devise/shared/links"
-= render "devise/shared/form_wrap"
+- content_for(:main) do
+  = render "devise/shared/form_wrap"

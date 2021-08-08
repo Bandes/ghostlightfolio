@@ -36,4 +36,5 @@
     .flex-1
       %p.py-4 Unhappy?
     = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-red"
-= render 'devise/shared/form_wrap'
+- content_for(:main) do
+  = render 'devise/shared/form_wrap'

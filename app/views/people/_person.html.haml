@@ -18,7 +18,7 @@
   %td.py-3.px-6.text-left.whitespace-nowrap
     = person.vocal_range
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = link_to edit_person_path(person), title: 'Edit' do
+    = link_to edit_person_path(person), title: 'Edit', data: { turbo_frame: 'details' } do
       %i.fas.fa-edit
     = link_to person_path(person), method: 'delete', data: { confirm: 'Are you sure?' } do
       %i.fas.fa-trash
