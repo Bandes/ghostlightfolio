@@ -6,7 +6,7 @@
   %td.py-3.px-6.text-left.whitespace-nowrap
     = location.capacity
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = link_to edit_location_path(location), title: 'Edit' do
+    = link_to edit_location_path(location), title: 'Edit', data: { turbo_frame: 'details' } do
       %i.fas.fa-edit
     = link_to location_path(location), method: 'delete', data: { confirm: 'Are you sure?' } do
       %i.fas.fa-trash

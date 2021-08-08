@@ -1,5 +1,5 @@
-.w-full.max-w-md.mx-auto.my-8.text-xl.font-bold
-  Edit Show
-.w-full.max-w-md.mx-auto.my-8
-  .bg-white.border.border-gray-300.rounded-lg.px-8.pt-6.pb-8
+%div{ class: 'col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4 mx-8' }
+  = turbo_frame_tag 'details' do
+    .w-full.mx-auto.my-8.text-xl.font-bold
+      = show.name
     = render partial: 'form', locals: { show: show }

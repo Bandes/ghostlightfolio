@@ -1,33 +1,36 @@
-.w-full.mx-auto.my-8.text-xl.font-bold
-  %span.float-left
-    People
-  = link_to 'Add Person', '#', class: 'btn btn-default mb-2 lg:mr-2 lg:mb-0 float-right', onclick: "$('#details').attr('src', '#{new_person_path}');"
-.w-full.lg.overflow-auto
-  .bg-white.rounded.my-6
-    .border.border-solid.border-gray-200.overflow-auto
-      %table.min-w-max.w-full.table-auto
-        %thead
-          %tr.bg-gray-200.text-gray-600.uppercase.text-sm.leading-normal
-            %th.py-3.px-6.text-left
-              Name
-            %th.py-3.px-6.text-left
-              Email
-            %th.py-3.px-6.text-left
-              Phone
-            %th.py-3.px-6.text-left
-              Ethnicity
-            %th.py-3.px-6.text-left
-              Gender Identity
-            %th.py-3.px-6.text-left
-              LGBT
-            %th.py-3.px-6.text-left
-              Strong Dancer
-            %th.py-3.px-6.text-left
-              Strong Singer
-            %th.py-3.px-6.text-left
-              Vocal Range            
-            %th.py-3.px-6.text-left
-              Actions
-        %tbody.text-gray-600.text-sm.font-light
-          - people.each do |person|
-            = render partial: 'person', locals: { person: person }
+- content_for(:main) do
+  .w-full.mx-auto.my-8.text-xl.font-bold{ data: { controller: 'button' } }
+    %span.float-left
+      People
+    = link_to 'Add Person', new_person_path, class: 'btn btn-default mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' }
+  .w-full.lg.overflow-auto
+    .bg-white.rounded.my-6
+      .border.border-solid.border-gray-200.overflow-auto
+        %table.min-w-max.w-full.table-auto
+          %thead
+            %tr.bg-gray-200.text-gray-600.uppercase.text-sm.leading-normal
+              %th.py-3.px-6.text-left
+                Name
+              %th.py-3.px-6.text-left
+                Email
+              %th.py-3.px-6.text-left
+                Phone
+              %th.py-3.px-6.text-left
+                Ethnicity
+              %th.py-3.px-6.text-left
+                Gender Identity
+              %th.py-3.px-6.text-left
+                LGBT
+              %th.py-3.px-6.text-left
+                Strong Dancer
+              %th.py-3.px-6.text-left
+                Strong Singer
+              %th.py-3.px-6.text-left
+                Vocal Range            
+              %th.py-3.px-6.text-left
+                Actions
+          %tbody.text-gray-600.text-sm.font-light
+            - people.each do |person|
+              = render partial: 'person', locals: { person: person }
+- content_for(:frame) do
+  Hello

@@ -8,7 +8,7 @@
   %td.py-3.px-6.text-left.whitespace-nowrap
     = author.lgbt
   %td.py-3.px-6.text-left.whitespace-nowrap
-    = link_to edit_author_path(author), title: 'Edit' do
+    = link_to edit_author_path(author), title: 'Edit', data: { turbo_frame: 'details' } do
       %i.fas.fa-edit
     = link_to author_path(author), method: 'delete', data: { confirm: 'Are you sure?' } do
       %i.fas.fa-trash
