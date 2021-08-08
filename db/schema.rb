@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_212303) do
+ActiveRecord::Schema.define(version: 2021_08_08_195253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_08_01_212303) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "lgbt"
+    t.string "author_code"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -80,7 +81,6 @@ ActiveRecord::Schema.define(version: 2021_08_01_212303) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.bigint "person_id", null: false
     t.string "name"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 2021_08_01_212303) do
     t.string "ethnicity"
     t.boolean "lgbt", default: false
     t.bigint "show_id"
-    t.index ["person_id"], name: "index_roles_on_person_id"
     t.index ["show_id"], name: "index_roles_on_show_id"
   end
 
@@ -106,6 +105,7 @@ ActiveRecord::Schema.define(version: 2021_08_01_212303) do
     t.date "year_written"
     t.boolean "public_domain"
     t.string "description"
+    t.string "show_code"
     t.index ["author_id"], name: "index_shows_on_author_id"
   end
 
@@ -128,7 +128,6 @@ ActiveRecord::Schema.define(version: 2021_08_01_212303) do
   add_foreign_key "people", "users"
   add_foreign_key "productions", "locations"
   add_foreign_key "productions", "shows"
-  add_foreign_key "roles", "people"
   add_foreign_key "roles", "shows"
   add_foreign_key "shows", "authors"
 end

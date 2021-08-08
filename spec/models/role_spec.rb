@@ -14,17 +14,14 @@
 #  strong_singer   :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  person_id       :bigint           not null
 #  show_id         :bigint
 #
 # Indexes
 #
-#  index_roles_on_person_id  (person_id)
-#  index_roles_on_show_id    (show_id)
+#  index_roles_on_show_id  (show_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (person_id => people.id)
 #  fk_rails_...  (show_id => shows.id)
 #
 require 'rails_helper'

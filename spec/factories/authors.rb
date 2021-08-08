@@ -3,6 +3,7 @@
 # Table name: authors
 #
 #  id              :bigint           not null, primary key
+#  author_code     :string
 #  ethnicity       :string
 #  first_name      :string
 #  gender_identity :string

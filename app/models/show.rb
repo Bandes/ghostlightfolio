@@ -9,6 +9,7 @@
 #  description    :string
 #  name           :string
 #  public_domain  :boolean
+#  show_code      :string
 #  year_written   :date
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -25,6 +26,7 @@
 class Show < ApplicationRecord
   belongs_to :author
   has_many :productions, dependent: :destroy
+  has_many :roles, dependent: :destroy
 
   validates :name, uniqueness: true, presence: true
 end
