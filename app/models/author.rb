@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: authors
@@ -17,16 +19,15 @@ class Author < ApplicationRecord
 
   has_many :credits, dependent: :destroy
   has_many :shows, through: :credits
-  
-	validates :first_name, uniqueness: { scope: :last_name }, presence: true
-	validates :last_name, uniqueness: { scope: :first_name }, presence: true
 
-	def self.names
-		Author.all.map { |author| [author.name.full, author.id] }
-	end
+  validates :first_name, uniqueness: { scope: :last_name }, presence: true
+  validates :last_name, uniqueness: { scope: :first_name }, presence: true
 
-	def bipoc?
-		ethnicity != Constants::ETHNICITIES[:white]
-	end
+  def self.names
+    Author.all.map { |author| [author.name.full, author.id] }
+  end
 
+  def bipoc?
+    ethnicity != Constants::ETHNICITIES[:white]
+  end
 end

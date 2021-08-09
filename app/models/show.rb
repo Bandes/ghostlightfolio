@@ -24,7 +24,6 @@ class Show < ApplicationRecord
 
   def authors_for_display
     author_array = authors.map { |author| author.name.full }
-    author_array.join(", ")
+    author_array.join(', ')
   end
-
 end
