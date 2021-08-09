@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_195253) do
+ActiveRecord::Schema.define(version: 2021_08_08_214058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2021_08_08_195253) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "lgbt"
     t.string "author_code"
+  end
+
+  create_table "credits", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "show_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_credits_on_author_id"
+    t.index ["show_id"], name: "index_credits_on_show_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -100,13 +109,11 @@ ActiveRecord::Schema.define(version: 2021_08_08_195253) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "author_id"
     t.date "copyright_year"
     t.date "year_written"
     t.boolean "public_domain"
     t.string "description"
     t.string "show_code"
-    t.index ["author_id"], name: "index_shows_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -124,10 +131,11 @@ ActiveRecord::Schema.define(version: 2021_08_08_195253) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "credits", "authors"
+  add_foreign_key "credits", "shows"
   add_foreign_key "locations", "users"
   add_foreign_key "people", "users"
   add_foreign_key "productions", "locations"
   add_foreign_key "productions", "shows"
   add_foreign_key "roles", "shows"
-  add_foreign_key "shows", "authors"
 end

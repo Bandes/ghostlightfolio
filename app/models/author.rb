@@ -15,7 +15,8 @@
 class Author < ApplicationRecord
   has_person_name
 
-  has_many :shows, dependent: :destroy
+  has_many :credits, dependent: :destroy
+  has_many :shows, through: :credits
   
 	validates :first_name, uniqueness: { scope: :last_name }, presence: true
 	validates :last_name, uniqueness: { scope: :first_name }, presence: true

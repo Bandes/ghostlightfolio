@@ -4,7 +4,7 @@ class ShowsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    shows = Show.all
+    shows = Show.includes([:credits, :authors])
 
     render locals: { shows: shows }
   end
@@ -17,6 +17,7 @@ class ShowsController < ApplicationController
 
   def update
     show = Show.find(params[:id])
+    show.authors = author_records
 
     if show.update(show_params)
       redirect_to shows_path, notice: 'Show edited successfully'
@@ -27,6 +28,7 @@ class ShowsController < ApplicationController
 
   def create
     show = Show.new(show_params)
+    show.authors = author_records
     if show.save
       redirect_to shows_path, notice: 'Show created successfully'
     else
@@ -48,6 +50,12 @@ class ShowsController < ApplicationController
   end
 
   def show_params
-    params.require(:show).permit(:author_id, :name, :year_written, :copyright_year, :public_domain)
+    params.require(:show).permit(:name, :year_written, :copyright_year, :public_domain)
+  end
+
+  def author_records
+    author_ids = params[:show][:author_ids]
+    author_ids.delete("")
+    Author.where(id: author_ids)
   end
 end

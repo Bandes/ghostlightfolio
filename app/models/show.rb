@@ -13,20 +13,18 @@
 #  year_written   :date
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  author_id      :bigint
-#
-# Indexes
-#
-#  index_shows_on_author_id  (author_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (author_id => authors.id)
 #
 class Show < ApplicationRecord
-  belongs_to :author
   has_many :productions, dependent: :destroy
   has_many :roles, dependent: :destroy
+  has_many :credits, dependent: :destroy
+  has_many :authors, through: :credits
 
   validates :name, uniqueness: true, presence: true
+
+  def authors_for_display
+    author_array = authors.map { |author| author.name.full }
+    author_array.join(", ")
+  end
+
 end

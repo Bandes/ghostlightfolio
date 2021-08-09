@@ -18,9 +18,9 @@ class SeedDatabase
       )
 
       show = Show.find_or_initialize_by(show_code: datum['show_code'], name: datum['show_name'])
-      show.update(author: author)
+      show.authors << author
+      show.save
     end
-
   end
 
   def self.seed_roles

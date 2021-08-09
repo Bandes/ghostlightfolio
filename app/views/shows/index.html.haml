@@ -6,7 +6,7 @@
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6
       .border.border-solid.border-gray-200.overflow-auto
-        %table.min-w-max.w-full.table-auto
+        %table.min-w-max.w-full.table-auto{ data: { controller: 'table-row' } }
           %thead
             %tr.bg-gray-200.text-gray-600.uppercase.text-sm.leading-normal
               %th.py-3.px-6.text-left
@@ -19,8 +19,6 @@
                 Copyright Year
               %th.py-3.px-6.text-left
                 Public Domain
-              %th.py-3.px-6.text-left
-                Actions
           %tbody.text-gray-600.text-sm.font-light
             - shows.each do |show|
               = render partial: 'show', locals: { show: show }
