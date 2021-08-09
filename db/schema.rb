@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_214058) do
+ActiveRecord::Schema.define(version: 2021_08_09_230205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_08_08_214058) do
     t.string "ethnicity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "lgbt"
+    t.boolean "lgbt", default: false
     t.string "author_code"
   end
 
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2021_08_08_214058) do
     t.boolean "strong_singer", default: false
     t.string "ethnicity"
     t.boolean "lgbt", default: false
-    t.bigint "show_id"
+    t.bigint "show_id", null: false
     t.index ["show_id"], name: "index_roles_on_show_id"
   end
 

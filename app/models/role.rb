@@ -16,7 +16,7 @@
 #  strong_singer   :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  show_id         :bigint
+#  show_id         :bigint           not null
 #
 # Indexes
 #
