@@ -23,7 +23,7 @@ class Show < ApplicationRecord
   validates :name, uniqueness: true, presence: true
 
   def authors_for_display
-    author_array = authors.map { |author| author.name.full }
+    author_array = authors.uniq.map { |author| author.name.full }
     author_array.join(', ')
   end
 end

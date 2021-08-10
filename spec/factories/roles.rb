@@ -27,7 +27,6 @@
 FactoryBot.define do
   factory :role do
     show
-    person
     sequence(:name) { |n| "Role-#{n}" }
     description { "MyString" }
   end

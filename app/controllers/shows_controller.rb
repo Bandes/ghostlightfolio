@@ -55,7 +55,7 @@ class ShowsController < ApplicationController
 
   def author_records
     author_ids = params[:show][:author_ids]
-    author_ids.delete('')
+    author_ids&.delete('')
     Author.where(id: author_ids)
   end
 end

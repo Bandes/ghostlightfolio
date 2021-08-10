@@ -1,14 +1,9 @@
-%tr.border-b.border-gray-200.hover
-  %td.py-3.px-6.text-left.whitespace-nowrap
+%tr{ data: { action: 'click->table-row#click', link: edit_author_path(author) } }
+  %td
     = author.name.full
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = author.gender_identity
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = author.ethnicity
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = author.lgbt
-  %td.py-3.px-6.text-left.whitespace-nowrap
-    = link_to edit_author_path(author), title: 'Edit', data: { turbo_frame: 'details' } do
-      %i.fas.fa-edit
-    = link_to author_path(author), method: 'delete', data: { confirm: 'Are you sure?' } do
-      %i.fas.fa-trash

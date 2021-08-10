@@ -30,4 +30,5 @@ class Role < ApplicationRecord
   belongs_to :show
 
   validates :name, uniqueness: { scope: :show }, presence: true
+  validates :show_id, presence: true
 end

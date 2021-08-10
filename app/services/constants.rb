@@ -2,17 +2,26 @@
 
 class Constants
   GENDER_IDENTITIES = {
-    male: 'Male',
     female: 'Female',
-    nonbinary: 'Trans/Nonbinary'
+    male: 'Male',
+    nonbinary: 'Nonbinary',
+    trans: 'Trans',
+    other: 'Other',
   }.freeze
 
   ETHNICITIES = {
-    asian: 'Asian or Pacific Islander',
-    black: 'Black',
-    indigenous: 'Indigenous',
-    latinx: 'Latinx',
-    white: 'White'
+    african: 'African',
+    asian_american: 'Asian-American',
+    black: 'African-American/Black',
+    east_asian: 'East Asian',
+    caucasian: 'Caucasian/White',
+    indigenous: 'Indigenous/First Nations',
+    middle_eastern: 'Middle Eastern',
+    latinx: 'Hispanic/Latinx',
+    south_asian: 'South Asian',
+    southeast_asian: 'Southeast Asian',
+    pacific_islander: 'Pacific Islander',
+    other: 'Other',
   }.freeze
 
   def self.gender_identities_for_select

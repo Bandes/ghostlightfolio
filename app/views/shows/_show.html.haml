@@ -1,11 +1,11 @@
-%tr.border-b.border-gray-200.hover{ data: { action: 'click->table-row#click', link: edit_show_path(show) } }
-  %td.py-3.px-6.text-left.whitespace-nowrap
+%tr{ data: { action: 'click->table-row#click', link: edit_show_path(show) } }
+  %td
     = show.name
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = show.authors_for_display
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = show.year_written
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = show.copyright_year
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = show.public_domain

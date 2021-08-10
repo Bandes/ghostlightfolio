@@ -21,5 +21,15 @@
 require 'rails_helper'
 
 RSpec.describe Credit, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'belongs to author and show' do
+    author = create(:author)
+    show = create(:show)
+    credit = Credit.new
+
+    credit.show = show
+    credit.author = author
+
+    expect(credit.show).to eq show
+    expect(credit.author).to eq author
+  end
 end

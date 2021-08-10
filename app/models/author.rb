@@ -23,10 +23,6 @@ class Author < ApplicationRecord
   validates :first_name, uniqueness: { scope: :last_name }, presence: true
   validates :last_name, uniqueness: { scope: :first_name }, presence: true
 
-  def self.names
-    Author.all.map { |author| [author.name.full, author.id] }
-  end
-
   def bipoc?
     ethnicity != Constants::ETHNICITIES[:white]
   end
