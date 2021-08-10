@@ -1,16 +1,11 @@
-%tr.border-b.border-gray-200.hover
-  %td.py-3.px-6.text-left.whitespace-nowrap
+%tr{ data: { action: 'click->table-row#click', link: edit_show_path(show) } }
+  %td
     = show.name
-  %td.py-3.px-6.text-left.whitespace-nowrap
-    = show.author.name.full
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
+    = show.authors_for_display
+  %td
     = show.year_written
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = show.copyright_year
-  %td.py-3.px-6.text-left.whitespace-nowrap
+  %td
     = show.public_domain
-  %td.py-3.px-6.text-left.whitespace-nowrap
-    = link_to edit_show_path(show), title: 'Edit', data: { turbo_frame: 'details' } do
-      %i.fas.fa-edit
-    = link_to show_path(show), method: 'delete', data: { confirm: 'Are you sure?' } do
-      %i.fas.fa-trash

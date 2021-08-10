@@ -1,7 +1,9 @@
 import { Controller } from "stimulus"
+import $ from 'jquery'
+import DataTable from "datatables"
 
 export default class extends Controller {
   connect() {
-    this.element.textContent = "Hello World!"
+    $('table').DataTable();
   }
 }

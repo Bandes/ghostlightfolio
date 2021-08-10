@@ -1,7 +1,8 @@
-= simple_form_for author do |f|
-  = f.input :first_name
-  = f.input :last_name
-  = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select
-  = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select
-  = f.input :lgbt
-  = f.button :submit
+%div{ data: { controller: 'select' } } 
+  = simple_form_for author do |f|
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select
+    = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }
+    = f.input :lgbt
+    = f.button :submit

@@ -53,7 +53,7 @@ RSpec.describe "Shows", type: :request do
         params = {
           show: {
             name: 'Lady Wolfman',
-            author_id: author.id
+            author_ids: [author.id]
           }
         }
 
@@ -68,7 +68,7 @@ RSpec.describe "Shows", type: :request do
         params = {
           show: {
             name: nil,
-            author_id: nil,
+            author_ids: nil,
           }
         }
 
