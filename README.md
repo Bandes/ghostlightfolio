@@ -1,9 +1,9 @@
-# SMToolkit
+# Ghostlight Folio
 
 ## What is it?
-SMToolkit is a simple application designed to help theatrical stage managers and directors keep track of the various aspects of the shows they work on.
+Ghostlight Folio is a simple application designed to help theatrical stage managers and directors keep track of the various aspects of the shows they work on.
 
-Eventually SMToolkit will support a wide variety of resources.
+Eventually Ghostlight Folio will support a wide variety of resources.
 
 ## Project Roadmap
 * Database of `Shows`
