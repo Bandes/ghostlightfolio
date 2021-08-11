@@ -6,3 +6,9 @@
     = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }
     = f.input :lgbt
     = f.button :submit
+#h3.w-full.mx-auto.my-4.text-l.font-bold
+  Shows
+%ul.divide-y.divide-gray-100
+  - author.shows.each do |show|
+    %li.p-3.hover:bg-blue-600.hover:text-blue-200
+      = link_to show.name, show_path(show), data: { turbo_frame: '_top' } 

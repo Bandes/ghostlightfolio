@@ -6,3 +6,9 @@
     = f.input :copyright_year, as: :date, html5: true 
     = f.input :public_domain
     = f.button :submit
+#h3.w-full.mx-auto.my-4.text-l.font-bold
+  Roles
+%ul.divide-y.divide-gray-100
+  - show.roles.each do |role|
+    %li.p-3.hover:bg-blue-600.hover:text-blue-200
+      = role.name

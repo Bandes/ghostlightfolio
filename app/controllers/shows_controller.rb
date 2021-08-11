@@ -9,6 +9,13 @@ class ShowsController < ApplicationController
     render locals: { shows: shows }
   end
 
+  def show
+    shows = Show.includes(%i[credits authors])
+    show = shows.find(params[:id])
+
+    render locals: { shows: shows, show: show }
+  end
+
   def new
     show = Show.new
 
