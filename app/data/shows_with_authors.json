@@ -2956,9 +2956,9 @@
 	{
 		"show_name": "Ivanov",
 		"show_code": "s2142",
-		"author_code": "p011280",
+		"author_code": "p003767",
 		"first_name": "Anton",
-		"last_name": "Chekov"
+		"last_name": "Chekhov"
 	},
 	{
 		"show_name": "Hamlet",
@@ -4026,15 +4026,8 @@
 	},
 	{
 		"show_name": "The Cherry Orchard",
-		"show_code": "s2185",
-		"author_code": "p003767",
-		"first_name": "Anton",
-		"last_name": "Chekhov"
-	},
-	{
-		"show_name": "The Cherry Orchard",
 		"show_code": "s2186",
-		"author_code": "p015165",
+		"author_code": "p003767",
 		"first_name": "Anton",
 		"last_name": "Chekhov"
 	},
@@ -4601,7 +4594,7 @@
 	{
 		"show_name": "Uncle Vanya",
 		"show_code": "s2206",
-		"author_code": "p015165",
+		"author_code": "p003767",
 		"first_name": "Anton",
 		"last_name": "Chekhov"
 	},
