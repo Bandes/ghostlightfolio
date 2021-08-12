@@ -4,6 +4,10 @@ import DataTable from "datatables"
 
 export default class extends Controller {
   connect() {
-    $('table').DataTable();
+    $('table').dataTable( {
+      "scrollY": "60vh",
+      "scrollCollapse": true,
+      "paging": false
+    } );
   }
 }
