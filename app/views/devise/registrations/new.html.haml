@@ -15,12 +15,12 @@
           %span.pl-1.text-xs.text-grey-dark
             %em
               (#{@minimum_password_length} characters minimum)
-      = f.password_field :password, autocomplete: "new-password", class: "input"
+      = f.password_field :password, autocomplete: "new-password", class: "input input-bordered"
     .input-group
       = f.label :password_confirmation, class:"label"
-      = f.password_field :password_confirmation, autocomplete: "new-password", class: "input"
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "input input-bordered"
     .input-group
-      = f.submit "Sign up", class: "btn btn-default"
+      = f.submit "Sign up", class: "btn btn-outline btn-primary"
     %hr.mt-6.border/
   = render "devise/shared/links"
 - content_for(:main) do

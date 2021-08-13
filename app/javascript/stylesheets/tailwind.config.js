@@ -7,6 +7,7 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/javascript/**/*.scss',
+    './app/javascript/**/*.css',
   ],
   presets: [],
   darkMode: false, // or 'media' or 'class'
