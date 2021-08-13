@@ -11,4 +11,4 @@
 %ul.divide-y.divide-gray-100
   - show.roles.each do |role|
     %li.p-3.hover:bg-blue-600.hover:text-blue-200
-      = role.name
+      = link_to role.name, edit_show_role_path(show_id: show.id, id: role.id)

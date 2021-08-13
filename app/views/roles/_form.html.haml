@@ -1,0 +1,12 @@
+%div{ data: { controller: 'select' } } 
+  = simple_form_for [role.show, role] do |f|
+    = f.input :age_max
+    = f.input :age_min
+    = f.input :description
+    = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select
+    = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select
+    = f.input :lgbt
+    = f.input :strong_singer
+    = f.input :strong_dancer
+
+    = f.button :submit
