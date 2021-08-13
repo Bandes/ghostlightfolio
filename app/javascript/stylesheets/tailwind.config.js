@@ -812,6 +812,18 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     require('daisyui')
   ],
+  daisyui: {
+    styled: true,
+    themes: [
+      'light',
+      'cupcake',
+    ],
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+  },
 }
