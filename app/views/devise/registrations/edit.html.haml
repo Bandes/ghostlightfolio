@@ -23,13 +23,13 @@
         (leave blank if you don't want to change it)
     .input-group
       = f.label :password_confirmation, class: "label"
-      = f.password_field :password_confirmation, autocomplete: "new-password", class: "input"
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "input input-bordered"
     .input-group
       = f.label :current_password, class: "label"
-      = f.password_field :current_password, autocomplete: "current-password", class: "input"
+      = f.password_field :current_password, autocomplete: "current-password", class: "input input-bordered"
       %p.pt-2.text-sm.italic.text-grey-dark (we need your current password to confirm your changes)
     .input-group
-      = f.submit "Update", class: "btn btn-default"
+      = f.submit "Update", class: "btn btn-outline btn-primary"
   %hr.mt-6.mb-3.border/
   %h3.mb-4.text-xl.font-bold.heading Cancel my account
   .flex.items-center.justify-between
