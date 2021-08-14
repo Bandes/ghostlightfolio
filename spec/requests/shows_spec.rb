@@ -22,6 +22,16 @@ RSpec.describe "Shows", type: :request do
       expect(response).to render_template :index
     end
 
+    it '#show will render the show template' do
+      user = create(:user)
+
+      sign_in user
+      show = create(:show)
+      get show_path(id: show.id)
+      expect(response).to have_http_status(200)
+      expect(response).to render_template :show
+    end
+
     it '#edit will render the edit template' do
       user = create(:user)
 

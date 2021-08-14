@@ -68,4 +68,5 @@ gem 'rubocop', require: false
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'simple_form'
 gem 'simple_form-tailwind'
+gem 'view_component'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -53,14 +53,14 @@ SimpleForm.setup do |config|
   end
 
   # vertical input for boolean (aka checkboxes)
-  config.wrappers :vertical_boolean, tag: 'div', class: 'mb-4 form-control flex items-start', error_class: '' do |b|
+  config.wrappers :vertical_boolean, tag: 'div', class: 'mb-4 form-control block items-start', error_class: '' do |b|
     b.use :html5
     b.optional :readonly
-    b.wrapper tag: 'div', class: 'flex items-center h-5' do |ba|
+    b.wrapper tag: 'label', class: 'cursor-pointer label' do |ba|
+      ba.use :label_text, class: 'label-text', error_class: 'text-red-500'
       ba.use :input, class: 'checkbox'
     end
     b.wrapper tag: 'div', class: 'ml-3 text-sm' do |bb|
-      bb.use :label, class: 'block', error_class: 'text-red-500'
       bb.use :hint, wrap_with: { tag: 'p', class: 'block text-grey-700 text-xs italic' }
       bb.use :full_error, wrap_with: { tag: 'p', class: 'block text-red-500 text-xs italic' }
     end
@@ -93,15 +93,15 @@ SimpleForm.setup do |config|
   end
 
   # vertical multi select
-  config.wrappers :vertical_multi_select, tag: 'div', class: 'my-4 form-control', error_class: 'f', valid_class: '' do |b|
+  config.wrappers :vertical_multi_select, tag: 'div', class: 'my-4 block relative', error_class: 'f', valid_class: '' do |b|
     b.use :html5
     b.optional :readonly
     b.wrapper :legend_tag, tag: 'legend', class: 'text-sm font-medium text-gray-600', error_class: 'text-red-500' do |ba|
       ba.use :label_text
     end
-    b.wrapper tag: 'div', class: 'inline-flex space-x-1' do |ba|
+    b.wrapper tag: 'div', class: 'block relative' do |ba|
       # ba.use :input, class: 'flex w-auto w-auto text-gray-500 text-sm border-gray-300 rounded p-2', error_class: 'text-red-500', valid_class: 'text-green-400'
-      ba.use :input, class: 'flex w-auto w-auto shadow appearance-none border border-gray-300 rounded w-full p-2 bg-white focus:outline-none focus:border-blue-500 text-gray-400 leading-4 transition-colors duration-200 ease-in-out'
+      ba.use :input, style: 'position: absolute; right: 1em; left: 1em; display: block;'
     end
     b.use :full_error, wrap_with: { tag: 'p', class: 'mt-2 text-red-500 text-xs italic' }
     b.use :hint, wrap_with: { tag: 'p', class: 'mt-2 text-grey-700 text-xs italic' }
