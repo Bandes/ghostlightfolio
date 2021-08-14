@@ -5,5 +5,6 @@ import Select2 from "select2"
 export default class extends Controller {
   connect() {
     $('select').select2();
+    $('.select').removeClass('select');
   }
 }

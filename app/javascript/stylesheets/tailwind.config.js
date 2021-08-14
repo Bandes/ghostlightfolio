@@ -4,6 +4,7 @@ module.exports = {
   mode: 'jit',
   purge: [
     './app/views/**/*.html.haml',
+    './app/components/**/*.html.haml',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/javascript/**/*.scss',
@@ -812,7 +813,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('daisyui'),
     require('@tailwindcss/typography'),
-    require('daisyui')
   ],
 }

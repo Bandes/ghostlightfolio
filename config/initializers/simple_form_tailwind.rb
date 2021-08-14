@@ -93,15 +93,15 @@ SimpleForm.setup do |config|
   end
 
   # vertical multi select
-  config.wrappers :vertical_multi_select, tag: 'div', class: 'my-4 block relative', error_class: 'f', valid_class: '' do |b|
+  config.wrappers :vertical_multi_select, tag: 'div', class: 'w-full my-4 block', error_class: 'f', valid_class: '' do |b|
     b.use :html5
     b.optional :readonly
     b.wrapper :legend_tag, tag: 'legend', class: 'text-sm font-medium text-gray-600', error_class: 'text-red-500' do |ba|
       ba.use :label_text
     end
-    b.wrapper tag: 'div', class: 'block relative' do |ba|
+    b.wrapper tag: 'div', class: 'block w-full my-4' do |ba|
       # ba.use :input, class: 'flex w-auto w-auto text-gray-500 text-sm border-gray-300 rounded p-2', error_class: 'text-red-500', valid_class: 'text-green-400'
-      ba.use :input, style: 'position: absolute; right: 1em; left: 1em; display: block;'
+      ba.use :input, class: 'w-full'
     end
     b.use :full_error, wrap_with: { tag: 'p', class: 'mt-2 text-red-500 text-xs italic' }
     b.use :hint, wrap_with: { tag: 'p', class: 'mt-2 text-grey-700 text-xs italic' }
@@ -121,6 +121,17 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { tag: 'p', class: 'mt-2 text-grey-700 text-xs italic' }
   end
 
+  config.wrappers :datetime, tag: 'div', class: 'block my-2', error_class: 'text-red-500' do |b|
+    b.use :html5
+    b.optional :readonly
+    b.wrapper tag: 'div', class: 'flex form-control h-5 my-4' do |ba|
+      ba.use :label, class: 'text-sm font-medium text-gray-600 block', error_class: 'text-red-500'
+      ba.use :input
+    end
+    b.use :full_error, wrap_with: { tag: 'p', class: 'mt-2 text-red-500 text-xs italic' }
+    b.use :hint, wrap_with: { tag: 'p', class: 'mt-2 text-grey-700 text-xs italic' }
+  end
+
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :vertical_form
 
@@ -129,8 +140,8 @@ SimpleForm.setup do |config|
   config.wrapper_mappings = {
     boolean:       :vertical_boolean,
     check_boxes:   :vertical_collection,
-    date:          :vertical_multi_select,
-    datetime:      :vertical_multi_select,
+    date:          :datetime,
+    datetime:      :datetime,
     file:          :vertical_file,
     radio_buttons: :vertical_collection,
     range:         :vertical_range,
