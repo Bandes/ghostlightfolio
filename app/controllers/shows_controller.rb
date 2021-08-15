@@ -28,6 +28,7 @@ class ShowsController < ApplicationController
 
     if show.update(show_params)
       redirect_to shows_path, notice: 'Show edited successfully'
+      show.broadcast_replace_to :shows
     else
       render :edit, locals: { show: show }
     end
@@ -38,6 +39,7 @@ class ShowsController < ApplicationController
     show.authors = author_records
     if show.save
       redirect_to shows_path, notice: 'Show created successfully'
+      show.broacast_append_to :shows
     else
       render :new, locals: { show: show }
     end
@@ -53,6 +55,7 @@ class ShowsController < ApplicationController
     show = Show.find(params[:id])
 
     show.destroy!
+    show.broadcast_remove_to :shows
     redirect_to shows_path, notice: 'Show successfully deleted'
   end
 

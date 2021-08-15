@@ -1,4 +1,4 @@
-%tr{ data: { action: 'click->table-row#click', link: edit_author_path(author) } }
+%tr{ id: dom_id(author), data: { action: 'click->table-row#click', link: edit_author_path(author) } }
   %td
     = author.name.full
   %td

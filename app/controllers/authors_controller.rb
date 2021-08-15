@@ -20,6 +20,7 @@ class AuthorsController < ApplicationController
 
     if author.update(author_params)
       redirect_to authors_path
+      author.broadcast_replace_to :authors
     else
       render :edit, locals: { author: author }
     end
@@ -29,6 +30,7 @@ class AuthorsController < ApplicationController
     author = Author.new(author_params)
     if author.save
       redirect_to authors_path, notice: 'Author created successfully'
+      author.broacast_append_to :authors
     else
       render :new, locals: { author: author }
     end
@@ -44,6 +46,7 @@ class AuthorsController < ApplicationController
     author = Author.find(params[:id])
 
     author.destroy!
+    author.broadcast_remove_to :authors
     redirect_to authors_path, notice: 'Author successfully deleted'
   end
 

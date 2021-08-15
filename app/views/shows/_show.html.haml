@@ -1,4 +1,4 @@
-%tr{ data: { action: 'click->table-row#click', link: edit_show_path(show) } }
+%tr{ id: dom_id(show), data: { action: 'click->table-row#click', link: edit_show_path(show) } }
   %td
     = show.name
   %td
@@ -8,4 +8,4 @@
   %td
     = show.copyright_year
   %td
-    = show.public_domain
+    = inline_svg_tag 'check.svg' if show.public_domain
