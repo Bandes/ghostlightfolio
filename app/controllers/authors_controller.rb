@@ -30,7 +30,7 @@ class AuthorsController < ApplicationController
     author = Author.new(author_params)
     if author.save
       redirect_to authors_path, notice: 'Author created successfully'
-      author.broacast_append_to :authors
+      author.broadcast_append_to :authors
     else
       render :new, locals: { author: author }
     end
