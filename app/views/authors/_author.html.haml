@@ -4,6 +4,6 @@
   %td
     = author.gender_identity
   %td
-    = author.ethnicity
+    = author.ethnicity_values&.join(', ')&.chomp
   %td
     = inline_svg_tag 'check.svg' if author.lgbt

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_230205) do
+ActiveRecord::Schema.define(version: 2021_08_15_114612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_230205) do
     t.string "first_name"
     t.string "last_name"
     t.string "gender_identity"
-    t.string "ethnicity"
+    t.string "ethnicity", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "lgbt", default: false
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_230205) do
     t.boolean "strong_singer", default: false
     t.string "vocal_range"
     t.boolean "lgbt", default: false
-    t.string "ethnicity"
+    t.string "ethnicity", default: [], array: true
     t.string "notes"
     t.index ["user_id"], name: "index_people_on_user_id"
   end
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_230205) do
     t.integer "age_max"
     t.boolean "strong_dancer", default: false
     t.boolean "strong_singer", default: false
-    t.string "ethnicity"
+    t.string "ethnicity", default: [], array: true
     t.boolean "lgbt", default: false
     t.bigint "show_id", null: false
     t.index ["show_id"], name: "index_roles_on_show_id"

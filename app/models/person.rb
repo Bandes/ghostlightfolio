@@ -7,7 +7,7 @@
 #  id              :bigint           not null, primary key
 #  age             :integer
 #  email           :string
-#  ethnicity       :string
+#  ethnicity       :string           default([]), is an Array
 #  first_name      :string
 #  gender_identity :string
 #  last_name       :string

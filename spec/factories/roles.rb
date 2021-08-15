@@ -6,7 +6,7 @@
 #  age_max         :integer
 #  age_min         :integer
 #  description     :string
-#  ethnicity       :string
+#  ethnicity       :string           default([]), is an Array
 #  gender_identity :string
 #  lgbt            :boolean          default(FALSE)
 #  name            :string

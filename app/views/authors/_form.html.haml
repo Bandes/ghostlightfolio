@@ -8,7 +8,7 @@
       = render(SimpleModalComponent.new(button_text: 'Why these questions?', message: 'We are collecting demographic data in order to provide a tool where theater professionals can search for plays that will help them achieve their diversity goals.'))
 
       = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select
-      = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }, class: 'block'
+      = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }, class: 'block', include_hidden: false
       = f.input :lgbt
     = f.button :submit
 #h3.w-full.mx-auto.my-4.text-l.font-bold

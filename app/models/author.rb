@@ -6,7 +6,7 @@
 #
 #  id              :bigint           not null, primary key
 #  author_code     :string
-#  ethnicity       :string
+#  ethnicity       :string           default([]), is an Array
 #  first_name      :string
 #  gender_identity :string
 #  last_name       :string
@@ -26,4 +26,9 @@ class Author < ApplicationRecord
   def bipoc?
     ethnicity != Constants::ETHNICITIES[:white]
   end
+
+  def ethnicity_values
+    ethnicity&.map { |key| Constants::ETHNICITIES[key.to_sym] }
+  end
+
 end
