@@ -9,5 +9,6 @@ module.exports = {
       },
       stage: 3
     })
-  ]
+  ],
+  cacheInclude: [/.*\.(css|scss|hbs)$/, /.tailwind\.config\.js$/],
 }

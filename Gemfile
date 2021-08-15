@@ -62,6 +62,7 @@ gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
 gem 'haml'
 gem 'hotwire-rails'
+gem 'inline_svg'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 gem 'rexml'
 gem 'rubocop', require: false

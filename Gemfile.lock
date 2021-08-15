@@ -114,6 +114,9 @@ GEM
       turbo-rails
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    inline_svg (1.7.2)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     listen (3.6.0)
@@ -309,6 +312,7 @@ DEPENDENCIES
   friendly_id (~> 5.4, >= 5.4.1)
   haml
   hotwire-rails
+  inline_svg
   jbuilder (~> 2.7)
   listen (~> 3.3)
   name_of_person (~> 1.1, >= 1.1.1)
