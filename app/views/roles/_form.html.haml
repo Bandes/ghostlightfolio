@@ -1,7 +1,6 @@
 %div{ data: { controller: 'select' } } 
   = simple_form_for [role.show, role] do |f|
-    = f.input :age_max
-    = f.input :age_min
+
     = f.input :description
     %fieldset.border.border-solid.border-gray-300.p-3.my-4.block
       %legend Demographics
@@ -10,7 +9,11 @@
       = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select
       = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }, class: 'block'
       = f.input :lgbt
-    = f.input :strong_singer
-    = f.input :strong_dancer
+    %fieldset.border.border-solid.border-gray-300.p-3.my-4.block
+      %legend Characteristics
+      = f.input :age_max
+      = f.input :age_min
+      = f.input :strong_singer
+      = f.input :strong_dancer
 
     = f.button :submit
