@@ -1,5 +1,9 @@
 - content_for(:main) do
   .max-w-lg.mx-auto.mt-16
     %h1.mb-4.text-3xl.font-black.text-center   Welcome to Ghostlight Folio
-    %p.text-lg.leading-snug 
-      Ghostlight Folio is a new platform designed to help theater people find and produce shows and other productions. 
+    = inline_svg_tag 'ghostlightfolio-linear-black.svg', class: 'float-left', size: '80px'
+    %p
+      Ghostlight Folio is a database tool designed to allow theater professionals to find and manage plays and musicals. 
+    %p 
+      We are particularly aware that it can be difficult to identify shows that meet diversity goals, so we have provided tools to
+      allow searching and filtering to find shows with diverse authors and casts. 
