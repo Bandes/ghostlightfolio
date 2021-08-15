@@ -64,6 +64,7 @@ gem 'haml'
 gem 'hotwire-rails'
 gem 'inline_svg'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
+gem 'ransack'
 gem 'rexml'
 gem 'rubocop', require: false
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
