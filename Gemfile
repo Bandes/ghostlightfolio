@@ -66,7 +66,7 @@ gem 'inline_svg'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 gem 'pundit'
 gem 'ransack'
-gem "responders", github: "heartcombo/responders" # https://github.com/heartcombo/responders/pull/223 not yet released
+gem "responders"
 gem 'rexml'
 gem 'rubocop', require: false
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
