@@ -3,10 +3,10 @@
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-control
       = f.label :email, class:"label"
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered input-primary"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered"
     .form-control
       = f.label :password, class:"label"
-      = f.password_field :password, autocomplete: "current-password", class: "input input-bordered input-primary"
+      = f.password_field :password, autocomplete: "current-password", class: "input input-bordered"
     .mb-6.input-checkbox
       - if devise_mapping.rememberable?
         = f.check_box :remember_me
