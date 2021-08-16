@@ -1,4 +1,4 @@
-class ShowPolicy < ApplicationPolicy
+class RolePolicy < ApplicationPolicy
   attr_reader :user, :role
 
   def initialize(user, role)
