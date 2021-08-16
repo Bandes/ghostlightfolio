@@ -3,4 +3,11 @@
   = f.input :last_name
   = f.input :phone
   = f.input :email
+  = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select
+  = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select
+  = f.input :lgbt
+  = f.input :strong_dancer
+  = f.input :strong_singer
+  = f.input :vocal_range
+  = f.input :notes, as: :text
   = f.button :submit

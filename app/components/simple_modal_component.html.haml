@@ -1,0 +1,9 @@
+%label{ for: "simple-modal", class: "btn btn-outline modal-button btn-sm" }
+  = @button_text 
+%input{ type: "checkbox", id: "simple-modal", class: "modal-toggle", style: 'display: none' } 
+.modal
+  .modal-box
+    %p= @message
+    .modal-action
+      %label{ for: "simple-modal", class: "btn btn-outline" }
+        Accept

@@ -12,7 +12,7 @@ RSpec.describe "Devise", type: :request do
     }
 
     post new_user_session_path, params: params
-    expect(response).to have_http_status(200)
+    expect(response).to have_http_status(422)
   end
 
 end

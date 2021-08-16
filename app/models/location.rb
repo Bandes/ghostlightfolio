@@ -22,6 +22,7 @@
 #
 class Location < ApplicationRecord
   belongs_to :user
+  has_many :productions, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, uniqueness: { scope: :user }, presence: true
 end

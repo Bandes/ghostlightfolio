@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class PeopleController < ApplicationController
-  
   before_action :authenticate_user!
-
+  
   def index
     people = current_user.people
 
@@ -49,6 +48,7 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :phone, :email)
+    params.require(:person).permit(:first_name, :last_name, :phone, :email, :ethnicity, :lgbt, :gender_identity,
+                                   :strong_singer, :strong_dancer, :vocal_range)
   end
 end

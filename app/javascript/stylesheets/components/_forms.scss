@@ -50,7 +50,7 @@
 
     + label {
       @extend .btn;
-      @extend .btn-default;
+      @extend .btn-outline btn-primary;
 
       @apply cursor-pointer inline-flex items-center justify-start w-auto;
 

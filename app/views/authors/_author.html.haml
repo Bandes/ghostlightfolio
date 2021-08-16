@@ -1,0 +1,9 @@
+%tr{ id: dom_id(author), data: { action: 'click->table-row#click', link: edit_author_path(author) } }
+  %td
+    = author.name.full
+  %td
+    = author.gender_identity
+  %td
+    = author.ethnicity_values&.join(', ')&.chomp
+  %td
+    = inline_svg_tag 'check.svg' if author.lgbt

@@ -1,0 +1,11 @@
+%tr{ id: dom_id(show), data: { action: 'click->table-row#click', link: edit_show_path(show) } }
+  %td
+    = show.name
+  %td
+    = show.authors_for_display
+  %td
+    = show.year_written
+  %td
+    = show.copyright_year
+  %td
+    = inline_svg_tag 'check.svg' if show.public_domain

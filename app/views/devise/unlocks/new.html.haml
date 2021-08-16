@@ -4,9 +4,9 @@
     = render "devise/shared/error_messages", resource: resource
     .input-group
       = f.label :email, class: "label"
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered"
     .input-group
-      = f.submit "Resend unlock instructions", class: "btn btn-default"
+      = f.submit "Resend unlock instructions", class: "btn btn-outline my-4"
   %hr.mt-6.border/
   = render "devise/shared/links"
 = render "devise/shared/form_wrap"

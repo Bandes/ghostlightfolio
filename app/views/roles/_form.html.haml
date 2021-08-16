@@ -1,0 +1,19 @@
+%div{ data: { controller: 'select' } } 
+  = simple_form_for [role.show, role] do |f|
+
+    = f.input :description
+    %fieldset.border.border-solid.border-gray-300.p-3.my-4.block
+      %legend Demographics
+      = render(SimpleModalComponent.new(button_text: 'Why these questions?', message: 'We are collecting demographic data in order to provide a tool where theater professionals can search for plays that will help them achieve their diversity goals.'))
+
+      = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select, disabled: !policy(role).edit?
+      = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }, class: 'block', disabled: !policy(role).edit?
+      = f.input :lgbt, disabled: !policy(role).edit?
+    %fieldset.border.border-solid.border-gray-300.p-3.my-4.block
+      %legend Characteristics
+      = f.input :age_max, disabled: !policy(role).edit?
+      = f.input :age_min, disabled: !policy(role).edit?
+      = f.input :strong_singer, disabled: !policy(role).edit?
+      = f.input :strong_dancer, disabled: !policy(role).edit?
+    - if policy(role).edit?
+      = f.button :submits

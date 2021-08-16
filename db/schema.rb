@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_234927) do
+ActiveRecord::Schema.define(version: 2021_08_15_203640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender_identity"
+    t.string "ethnicity", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "lgbt", default: false
+    t.string "author_code"
+  end
+
+  create_table "credits", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "show_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_credits_on_author_id"
+    t.index ["show_id"], name: "index_credits_on_show_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -44,16 +64,56 @@ ActiveRecord::Schema.define(version: 2021_07_26_234927) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "gender_identity"
+    t.integer "age"
+    t.boolean "strong_dancer", default: false
+    t.boolean "strong_singer", default: false
+    t.string "vocal_range"
+    t.boolean "lgbt", default: false
+    t.string "ethnicity", default: [], array: true
+    t.string "notes"
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
-  create_table "shows", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "productions", force: :cascade do |t|
+    t.bigint "location_id", null: false
     t.string "name"
-    t.string "author"
+    t.date "closing"
+    t.date "opening"
+    t.date "rehearsal"
+    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_shows_on_user_id"
+    t.bigint "show_id", null: false
+    t.index ["location_id"], name: "index_productions_on_location_id"
+    t.index ["show_id"], name: "index_productions_on_show_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "gender_identity"
+    t.integer "age_min"
+    t.integer "age_max"
+    t.boolean "strong_dancer", default: false
+    t.boolean "strong_singer", default: false
+    t.string "ethnicity", default: [], array: true
+    t.boolean "lgbt", default: false
+    t.bigint "show_id", null: false
+    t.index ["show_id"], name: "index_roles_on_show_id"
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "copyright_year"
+    t.date "year_written"
+    t.boolean "public_domain"
+    t.string "description"
+    t.string "show_code"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,11 +127,30 @@ ActiveRecord::Schema.define(version: 2021_07_26_234927) do
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "editor", default: false
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "credits", "authors"
+  add_foreign_key "credits", "shows"
   add_foreign_key "locations", "users"
   add_foreign_key "people", "users"
-  add_foreign_key "shows", "users"
+  add_foreign_key "productions", "locations"
+  add_foreign_key "productions", "shows"
+  add_foreign_key "roles", "shows"
 end
