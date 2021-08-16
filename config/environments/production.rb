@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require 'uri'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -15,16 +16,20 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  config.action_mailer.default_url_options = { :host => "ghostlightfolio.com" }
+
+  mailertogo        = URI.parse ENV['MAILERTOGO_URL']
+  mailertogo_domain = ENV.fetch("MAILERTOGO_DOMAIN", "ghostlightfolio.com")
 
   config.action_mailer.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'ghostlightfolio.heroku.com',
-    :authentication => :plain,
+    :address              => mailertogo.host,
+    :port                 => mailertogo.port,
+    :user_name            => mailertogo.user,
+    :password             => mailertogo.password,
+    :domain               => mailertogo_domain,
+    :authentication       => :plain,
+    :enable_starttls_auto => true,
   }
-  config.action_mailer.delivery_method = :smtp
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
