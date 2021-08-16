@@ -2,8 +2,6 @@
 
 class ShowsController < ApplicationController
   before_action :authenticate_user!
-
-  layout 'frame_pages'
   
   def index
     shows = Show.includes(%i[credits authors])

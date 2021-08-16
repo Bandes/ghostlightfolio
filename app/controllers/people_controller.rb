@@ -2,8 +2,6 @@
 
 class PeopleController < ApplicationController
   before_action :authenticate_user!
-
-  layout 'frame_pages'
   
   def index
     people = current_user.people

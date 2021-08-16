@@ -2,8 +2,6 @@
 
 class AuthorsController < ApplicationController
   before_action :authenticate_user!
-
-  layout 'frame_pages'
   
   def index
     authors = Author.all

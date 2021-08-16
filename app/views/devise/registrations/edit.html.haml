@@ -10,7 +10,7 @@
       = f.text_field :last_name, class:"input", class: "input input-bordered"
     .input-group
       = f.label :email, class:"label"
-      = f.email_field :email, autocomplete: "email", class:"input"
+      = f.email_field :email, autocomplete: "email", class:"input input-bordered"
     .input-group
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div

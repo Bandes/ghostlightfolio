@@ -2,8 +2,6 @@
 
 class RolesController < ApplicationController
   before_action :authenticate_user!
-
-  layout 'frame_pages'
   
   def update
     role = Role.find(params[:id])
