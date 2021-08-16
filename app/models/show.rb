@@ -29,8 +29,6 @@ class Show < ApplicationRecord
     author_array.join(', ')
   end
 
-  private
-
   def self.ransackable_scopes
     %i(ethnicity_search)
   end

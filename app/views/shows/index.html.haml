@@ -2,7 +2,7 @@
   .w-full.mx-auto.my-8.text-xl.font-bold
     %h2.float-left
       Shows
-    %label{ for: "simple-modal", class: "btn btn-outline modal-button float-right" }
+    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right" }
       Advanced Search
     %input{ type: "checkbox", id: "simple-modal", class: "modal-toggle", style: 'display: none' } 
     .modal
@@ -11,16 +11,16 @@
           %h2.text-lg.font-bold
             Advanced Search
           %ul
-            %li.my-4.block
+            %li.my-4.block#show_name
               = f.label :name_cont
               = f.search_field :name_cont, class: 'input input-bordered'
-            %li.my-4.block
+            %li.my-4.block#author_ethnicity
               = f.label :credits_author_ethnicity_contains
               = f.select :credits_author_ethnicity_contains, Constants.ethnicities_for_select, include_blank: true
-            %li.my-4.block
+            %li.my-4.block#author_gender_identity
               = f.label :credits_author_gender_identity_eq
               = f.select :credits_author_gender_identity_eq, Constants.gender_identities_for_select, include_blank: true
-            %li.my-4.block
+            %li.my-4.block#author_lgbt
               = f.label :credits_author_lgbt_eq
               = f.select :credits_author_lgbt_eq, [['True', 1], ['False', 0]], include_blank: true
           .modal-action
