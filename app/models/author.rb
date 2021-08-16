@@ -23,6 +23,12 @@ class Author < ApplicationRecord
   validates :first_name, uniqueness: { scope: :last_name }, presence: true
   validates :last_name, uniqueness: { scope: :first_name }, presence: true
 
+  scope :ethnicity_includes, ->(str) {where("array_to_string(ethnicity,',') ILIKE ?", "%#{str}%")}
+  
+  def self.ransackable_scopes(auth_object=nil) 
+    [:ethnicity_includes]
+  end
+
   def bipoc?
     ethnicity != Constants::ETHNICITIES[:white]
   end

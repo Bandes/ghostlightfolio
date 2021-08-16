@@ -4,8 +4,9 @@ class ShowsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    shows = Show.includes(%i[credits authors])
+    @q = Show.joins(%i[credits authors]).includes(%i[credits authors]).ransack(params[:q])
 
+    shows = @q.result(distinct: true).includes(%i[credits authors])
     render locals: { shows: shows }
   end
 
