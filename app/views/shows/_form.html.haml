@@ -1,11 +1,12 @@
 %div{ data: { controller: 'select' } } 
   = simple_form_for show do |f|
-    = f.input :name
-    = f.association :authors, include_blank: false
-    = f.input :year_written, as: :date, html5: true 
-    = f.input :copyright_year, as: :date, html5: true 
-    = f.input :public_domain
-    = f.button :submit
+    = f.input :name, disabled: !policy(show).edit?
+    = f.association :authors, include_blank: false, disabled: !policy(show).edit?
+    = f.input :year_written, as: :date, html5: true, disabled: !policy(show).edit?
+    = f.input :copyright_year, as: :date, html5: true, disabled: !policy(show).edit?
+    = f.input :public_domain, disabled: !policy(show).edit?
+    - if policy(show).edit?
+      = f.button :submit
 #h3.w-full.mx-auto.my-4.text-l.font-bold
   Roles
 %ul.divide-y.divide-gray-100

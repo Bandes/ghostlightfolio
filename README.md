@@ -12,8 +12,8 @@ Eventually Ghostlight Folio will support a wide variety of resources.
 * Plan for drag-and-drop blocking behavior for `Scenes`
 
 ## Early Tasks
-* Start with the ability to add and edit top-level `ShowTemplate` records which will allow crowdsourcing of show data
-* Attach `Role` or some similar record to `ShowTemplate` and give it searchable characteristics
+* Start with the ability to add and edit top-level `Show` records which will allow crowdsourcing of show data
+* Attach `Role` or some similar record to `Show` and give it searchable characteristics
 * Add search
 
 * Add `Production` model which will allow for instances of shows to be used

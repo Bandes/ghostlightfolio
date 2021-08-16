@@ -1,19 +1,20 @@
 %div{ data: { controller: 'select' } } 
   = simple_form_for author do |f|
-    = f.input :first_name
-    = f.input :last_name
+    = f.input :first_name, disabled: !policy(author).edit?
+    = f.input :last_name, disabled: !policy(author).edit?
 
     %fieldset.border.border-solid.border-gray-300.p-3.my-4.block
       %legend Demographics
       = render(SimpleModalComponent.new(button_text: 'Why these questions?', message: 'We are collecting demographic data in order to provide a tool where theater professionals can search for plays that will help them achieve their diversity goals.'))
 
-      = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select
-      = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }, class: 'block', include_hidden: false
-      = f.input :lgbt
-    = f.button :submit
+      = f.input :gender_identity, as: :select, collection: Constants.gender_identities_for_select, disabled: !policy(author).edit?
+      = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }, class: 'block', include_hidden: false, disabled: !policy(author).edit?
+      = f.input :lgbt, disabled: !policy(author).edit?
+    - if policy(author).edit?
+      = f.button :submit
 #h3.w-full.mx-auto.my-4.text-l.font-bold
   Shows
 %ul.divide-y.divide-gray-100
   - author.shows.each do |show|
     %li.p-3.hover:bg-blue-600.hover:text-blue-200
-      = link_to show.name, show_path(show), data: { turbo_frame: '_top' } 
+      = link_to show.name, show_path(show), data: { turbo_frame: '_top' }

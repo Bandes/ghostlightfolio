@@ -7,32 +7,21 @@ class ApplicationPolicy
   end
 
   def index?
-    false
-  end
-
-  def show?
-    false
+    true
   end
 
   def create?
-    false
-  end
-
-  def new?
-    create?
-  end
-
-  def update?
-    false
-  end
-
-  def edit?
-    update?
+    user.editor || user.admin
   end
 
   def destroy?
-    false
+    user.admin
   end
+
+  alias show? index?
+  alias new? create?
+  alias edit? create?
+  alias update? create?
 
   class Scope
     attr_reader :user, :scope
