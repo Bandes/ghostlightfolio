@@ -16,10 +16,10 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.action_mailer.default_url_options = { :host => "www.ghostlightfolio.com" }
+  config.action_mailer.default_url_options = { :host => "ghostlightfolio.com" }
 
-  mailertogo        = URI.parse ENV['MAILERTOGO_CUSTOM_URL']
-  mailertogo_domain = ENV.fetch("MAILERTOGO_CUSTOM_DOMAIN", "www.ghostlightfolio.com")
+  mailertogo        = URI.parse ENV['MAILERTOGO_URL']
+  mailertogo_domain = ENV.fetch("MAILERTOGO_DOMAIN", "ghostlightfolio.com")
 
   config.action_mailer.smtp_settings = {
     :address              => mailertogo.host,
