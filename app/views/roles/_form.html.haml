@@ -16,4 +16,4 @@
       = f.input :strong_singer, disabled: !policy(role).edit?
       = f.input :strong_dancer, disabled: !policy(role).edit?
     - if policy(role).edit?
-      = f.button :submits
+      = f.button :submit
