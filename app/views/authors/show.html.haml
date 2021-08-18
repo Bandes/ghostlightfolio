@@ -32,11 +32,11 @@
               Cancel
             = f.submit class: 'btn btn-primary btn-sm'
 
-    = link_to 'Add Author', new_author_path, class: 'btn btn-outline mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' }
+    = link_to 'Add Author', new_author_path, class: 'btn btn-outline mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' } if policy(author).edit?
   .w-full.lg.overflow-auto
-    .bg-white.rounded.my-6{ data: { controller: 'datatable' } }
+    .bg-white.rounded.my-6
       = turbo_stream_from :authors
-      %table.hover.stripe{ data: { controller: 'table-row' } }
+      %table.hover.stripe{ data: { controller: 'table-row', highlighted_row: "author_#{author.id}" } }
         %thead
           %tr
             %th
@@ -48,8 +48,8 @@
             %th
               LGBT
         %tbody
-          - authors.each do |author|
-            = render partial: 'author', locals: { author: author }
+          - authors.each do |author_item|
+            = render partial: 'author', locals: { author: author_item }
 - content_for(:frame) do
   .w-full.mx-auto.my-8.text-xl.font-bold
     = author.name
