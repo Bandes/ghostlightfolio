@@ -6,6 +6,7 @@
     .flex-1.px-2.mx-2
       = link_to 'Shows', shows_path, class: 'btn btn-ghost btn-sm rounded-btn'
       = link_to 'Authors', authors_path, class: 'btn btn-ghost btn-sm rounded-btn'
+      = link_to 'Contact', contacts_path, class: 'btn btn-ghost btn-sm rounded-btn'
     .flex-none
       - if user_signed_in?
         = link_to 'Edit account', edit_user_registration_path, class: 'btn btn-ghost btn-sm rounded-btn mb-2 lg:mr-2 lg:mb-0'
@@ -13,4 +14,3 @@
       - else
         = link_to 'Login', new_user_session_path, class:'btn btn-ghost btn-sm rounded-btn mb-2 lg:mr-2 lg:mb-0'
         = link_to 'Sign Up', new_user_registration_path, class:'btn btn-ghost btn-sm rounded-btn'
-

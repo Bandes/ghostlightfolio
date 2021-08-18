@@ -1,0 +1,21 @@
+.max-w-lg.mx-auto.mt-16.prose
+  %h1 Contact me
+  %p I'd love to hear from you and I will do my best to get back to you as soon as I can. If you need editor access, please let me know that in your message.
+  = form_for @contact, url: contacts_path, data: { turbo_frame: '_top' } do |f|
+    .form_content
+      .form-control.my-8
+        = f.text_field  :name, required: true, class: 'input input-bordered', placeholder: 'Your Name'
+      .form-control.my-8
+        = f.text_field :email, required: true, class: 'input input-bordered', placeholder: 'Your E-mail Address'
+      .form-control.my-8
+        = f.text_area :message,
+                      rows: 8,
+                      cols: 40,
+                      required: true,
+                      class: 'textarea h-24 textarea-bordered',
+                      placeholder: 'Your Message'
+
+      .hidden
+        = f.text_field :nickname
+
+      = f.submit 'Send Message', class: 'btn btn-primary'

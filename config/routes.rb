@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'contacts/index'
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => '/sidekiq'
     end
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     resources :roles, only: %w[edit update]
   end
   resources :authors, only: %w[index new create update destroy edit]
-  
+  resources :contacts, only: %w[index create]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
