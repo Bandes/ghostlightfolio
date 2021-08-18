@@ -57,16 +57,17 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "devise", github: "ghiculescu/devise", branch: "error-code-422" # https://github.com/heartcombo/devise/pull/5340 not yet merged
+gem 'devise', github: 'ghiculescu/devise', branch: 'error-code-422' # https://github.com/heartcombo/devise/pull/5340 not yet merged
 gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
 gem 'haml'
 gem 'hotwire-rails'
 gem 'inline_svg'
+gem 'mail_form'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 gem 'pundit'
 gem 'ransack'
-gem "responders"
+gem 'responders'
 gem 'rexml'
 gem 'rubocop', require: false
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'

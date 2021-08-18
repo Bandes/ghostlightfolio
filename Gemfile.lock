@@ -133,6 +133,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.9.0)
+      actionmailer (>= 5.2)
+      activemodel (>= 5.2)
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.0)
@@ -330,6 +333,7 @@ DEPENDENCIES
   inline_svg
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mail_form
   name_of_person (~> 1.1, >= 1.1.1)
   pg (~> 1.1)
   puma (~> 5.0)
