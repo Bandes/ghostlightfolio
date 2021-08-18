@@ -20,3 +20,7 @@
         %tbody
           - authors.each do |author|
             = render partial: 'author', locals: { author: author }
+- content_for(:frame) do
+  .w-full.mx-auto.my-8.text-xl.font-bold
+    = author.name
+  = render partial: 'form', locals: { author: author }

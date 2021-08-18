@@ -3,10 +3,17 @@
     .flex-none.px-2.mx-2
       = inline_svg_tag 'ghostlightfolio-linear-white.svg', size: '30px'
       = link_to 'Ghostlight Folio', root_path, class:'link text-xl tracking-tight font-black'
+  
     .flex-1.px-2.mx-2
+      = link_to contacts_path, class: 'px-4', title: 'Contact Me' do
+        %i{ class: 'fa fa-envelope' }
+      = link_to abouts_path, class: 'px-4', title: 'About' do
+        %i{ class: 'fa fa-question' }
+    .flex-1
       = link_to 'Shows', shows_path, class: 'btn btn-ghost btn-sm rounded-btn'
+    .flex-1
       = link_to 'Authors', authors_path, class: 'btn btn-ghost btn-sm rounded-btn'
-      = link_to 'Contact', contacts_path, class: 'btn btn-ghost btn-sm rounded-btn'
+
     .flex-none
       - if user_signed_in?
         = link_to 'Edit account', edit_user_registration_path, class: 'btn btn-ghost btn-sm rounded-btn mb-2 lg:mr-2 lg:mb-0'
