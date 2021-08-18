@@ -30,7 +30,7 @@
     = link_to 'Add Show', new_show_path, class: 'btn btn-outline btn-primary mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' } if policy(show).edit?
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6
-      %table.hover.stripe{ data: { controller: 'table-row' } }
+      %table.hover.stripe{ data: { controller: 'table-row', highlighted_row: "show_#{show.id}" } }
         %thead
           %th
             Name
@@ -43,8 +43,8 @@
           %th
             Public Domain
         %tbody
-          - shows.each do |show|
-            = render partial: 'show', locals: { show: show }
+          - shows.each do |show_item|
+            = render partial: 'show', locals: { show: show_item }
 - content_for(:frame) do
   %div{ class: 'col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4 mx-8' }
     = turbo_frame_tag 'details' do
