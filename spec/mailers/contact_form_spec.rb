@@ -8,7 +8,7 @@ RSpec.describe ContactForm do
       {
         subject: 'Message from ghostlight folio user',
         to: 'support@ghostlightfolio.com',
-        from: '"George" <george@example.com>'
+        from: 'support@ghostlightfolio.com'
       }
     )
   end
