@@ -31,7 +31,7 @@
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6{ data: { controller: 'datatable' } }
       = turbo_stream_from :shows
-      %table.hover.stripe{ data: { controller: 'table-row' } }
+      %table.table.table-zebra{ data: { controller: 'table-row' } }
         %thead
           %th
             Name

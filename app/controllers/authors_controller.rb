@@ -9,6 +9,12 @@ class AuthorsController < ApplicationController
     render locals: { authors: authors }
   end
 
+  def show
+    authors = Author.all
+
+    render locals: { authors: authors, author: author }
+  end
+
   def new
     author = Author.new
 
@@ -27,18 +33,16 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    author = Author.new(author_params)
-    if author.save
+    created_author = Author.new(author_params)
+    if created_author.save
       redirect_to authors_path, notice: 'Author created successfully'
-      author.broadcast_append_to :authors
+      created_author.broadcast_append_to :authors
     else
-      render :new, locals: { author: author }
+      render :new, locals: { author: created_author }
     end
   end
 
   def edit
-    author = Author.find(params[:id])
-
     render locals: { author: author }
   end
 
@@ -48,6 +52,10 @@ class AuthorsController < ApplicationController
     author.destroy!
     author.broadcast_remove_to :authors
     redirect_to authors_path, notice: 'Author successfully deleted'
+  end
+
+  def author
+    @author ||= Author.find(params[:id])
   end
 
   def author_params

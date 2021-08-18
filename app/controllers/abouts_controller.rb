@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HomeController < ApplicationController
+class AboutsController < ApplicationController
   layout 'plain'
   
   def index; end

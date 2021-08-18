@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
   before_action :contact_params, only: [:create]
 
-  layout 'devise'
+  layout 'plain'
 
   def index
     @contact = ContactForm.new

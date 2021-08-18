@@ -5,7 +5,7 @@
     = link_to 'Add Show', new_show_path, class: 'btn btn-outline btn-primary mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' }
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6{ data: { controller: 'datatable' } }
-      %table.hover.stripe{ data: { controller: 'table-row' } }
+      %table.table.table-zebra{ data: { controller: 'table-row' } }
         %thead
           %th
             Name
@@ -25,4 +25,4 @@
     = turbo_frame_tag 'details' do
       .w-full.mx-auto.my-8.text-xl.font-bold
         = show.name
-      = render partial: 'form', locals: { show: show }  
+      = render partial: 'form', locals: { show: show }
