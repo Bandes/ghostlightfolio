@@ -22,7 +22,7 @@
               = f.select :credits_author_gender_identity_eq, Constants.gender_identities_for_select, include_blank: true
             %li.my-4.block#author_lgbt
               = f.label :credits_author_lgbt_eq
-              = f.select :credits_author_lgbt_eq, [['True', 1], ['False', 0]], include_blank: true
+              = f.select :credits_author_lgbt_eq, [['Yes', 1], ['No', 0]], include_blank: true
           .modal-action
             %label{ for: "simple-modal", class: "btn btn-outline btn-sm" }
               Cancel

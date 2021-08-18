@@ -11,7 +11,9 @@ class ShowsController < ApplicationController
   end
 
   def show
-    shows = Show.includes(%i[credits authors])
+    @q = Show.joins(%i[credits authors]).includes(%i[credits authors]).ransack(params[:q])
+
+    shows = @q.result(distinct: true).includes(%i[credits authors])
     show = shows.find(params[:id])
 
     render locals: { shows: shows, show: show }

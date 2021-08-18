@@ -4,13 +4,15 @@ class AuthorsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    authors = Author.all
+    @q = Author.ransack(params[:q])
+    authors = @q.result
 
     render locals: { authors: authors }
   end
 
   def show
-    authors = Author.all
+    @q = Author.ransack(params[:q])
+    authors = @q.result
 
     render locals: { authors: authors, author: author }
   end

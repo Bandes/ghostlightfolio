@@ -23,6 +23,8 @@ class Author < ApplicationRecord
   validates :first_name, uniqueness: { scope: :last_name }, presence: true
   validates :last_name, uniqueness: { scope: :first_name }, presence: true
 
+  scope :ethnicity_search, ->(value){ where("ethnicity @> ?", value) }
+
   def bipoc?
     ethnicity != Constants::ETHNICITIES[:white]
   end
@@ -31,4 +33,7 @@ class Author < ApplicationRecord
     ethnicity&.map { |key| Constants::ETHNICITIES[key.to_sym] }
   end
 
+  def self.ransackable_scopes
+    %i(ethnicity_search)
+  end
 end
