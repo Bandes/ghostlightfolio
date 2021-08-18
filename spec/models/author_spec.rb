@@ -57,4 +57,8 @@ RSpec.describe Author, type: :model do
       expect(author.bipoc?).to be true
     end
   end
+
+  it 'ransackable_scopes' do
+    expect(described_class.ransackable_scopes).to eq([:ethnicity_search])
+  end
 end

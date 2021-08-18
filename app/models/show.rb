@@ -20,7 +20,7 @@ class Show < ApplicationRecord
   has_many :credits, dependent: :destroy
   has_many :authors, through: :credits
 
-  validates :name, uniqueness: true, presence: true
+  validates :name, presence: true
 
   scope :ethnicity_search, ->(value){ joins(credits: { author: :credits }).includes(:authors, :credits).where("authors.ethnicity @> ?", "{#{value}}") }
 

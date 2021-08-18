@@ -40,6 +40,17 @@ RSpec.describe "Authors", type: :request do
       expect(response).to render_template :new
     end
 
+    it '#show will render the show template' do
+      user = create(:user)
+
+      sign_in user
+      author = create(:author)
+      get author_path(author)
+      expect(response).to have_http_status(200)
+      expect(response).to render_template :show
+    end
+
+
     describe '#create' do
       it 'will create a new author when given good data' do
         user = create(:user)
