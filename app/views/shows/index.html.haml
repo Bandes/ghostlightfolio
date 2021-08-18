@@ -27,7 +27,7 @@
             %label{ for: "simple-modal", class: "btn btn-outline btn-sm" }
               Cancel
             = f.submit class: 'btn btn-primary btn-sm'
-    = link_to 'Add Show', new_show_path, class: 'btn btn-outline mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' }
+    = link_to 'Add Show', new_show_path, class: 'btn btn-outline mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' } if policy(shows).edit?
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6{ data: { controller: 'datatable' } }
       = turbo_stream_from :shows
