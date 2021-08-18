@@ -6,9 +6,9 @@ class ContactForm < MailForm::Base
 
   def headers
     {
-        :subject => "Message from ghostlight folio user",
-        :to => "support@ghostlightfolio.com",
-        :from => %("#{name}" <#{email}>)
+        :subject => 'Message from ghostlight folio user',
+        :to => 'support@ghostlightfolio.com',
+        :from => 'support@ghostlightfolio.com'
     }
   end
 end
