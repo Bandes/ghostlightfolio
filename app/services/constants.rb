@@ -17,7 +17,7 @@ class Constants
     caucasian: 'Caucasian/White',
     indigenous: 'Indigenous/First Nations',
     middle_eastern: 'Middle Eastern',
-    latinx: 'Hispanic/Latinx',
+    latinx: 'Hispanic/Latine',
     south_asian: 'South Asian',
     southeast_asian: 'Southeast Asian',
     pacific_islander: 'Pacific Islander',
