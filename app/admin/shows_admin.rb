@@ -3,6 +3,14 @@ Trestle.resource(:shows) do
     item :shows, icon: "fa fa-star"
   end
 
+  search do |query|
+    if query
+      Show.where("name ILIKE ?", "%#{query}%")
+    else
+      Show.all
+    end
+  end
+
   # Customize the table columns shown on the index view.
   #
   # table do
@@ -10,6 +18,14 @@ Trestle.resource(:shows) do
   #   column :created_at, align: :center
   #   actions
   # end
+
+  form do |show|
+    text_field :name
+    text_field :description
+    text_field :year_written
+    text_field :rights_holder
+    check_box :public_domain
+  end
 
   # Customize the form fields shown on the new/edit views.
   #

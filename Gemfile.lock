@@ -94,7 +94,6 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     concurrent-ruby (1.1.9)
-    connection_pool (2.2.5)
     crass (1.0.6)
     diff-lcs (1.4.4)
     docile (1.4.0)
@@ -267,10 +266,6 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    sidekiq (6.2.1)
-      connection_pool (>= 2.2.2)
-      rack (~> 2.0)
-      redis (>= 4.2.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -303,6 +298,8 @@ GEM
       sprockets-rails (>= 2.0.0)
     trestle-auth (0.4.3)
       bcrypt (~> 3.1.7)
+      trestle (~> 0.9.0, >= 0.9.3)
+    trestle-search (0.4.3)
       trestle (~> 0.9.0, >= 0.9.3)
     turbo-rails (0.6.0)
       rails (>= 6.0.0)
@@ -368,13 +365,13 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sass-rails (>= 6)
-  sidekiq (~> 6.1, >= 6.1.2)
   simple_form
   simple_form-tailwind
   simplecov
   spring
   trestle
   trestle-auth
+  trestle-search
   tzinfo-data
   view_component
   web-console (>= 4.1.0)

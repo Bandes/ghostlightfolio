@@ -3,6 +3,14 @@ Trestle.resource(:roles) do
     item :roles, icon: "fa fa-star"
   end
 
+  search do |query|
+    if query
+      Role.where("name ILIKE ?", "%#{query}%")
+    else
+      Role.all
+    end
+  end
+
   # Customize the table columns shown on the index view.
   #
   # table do

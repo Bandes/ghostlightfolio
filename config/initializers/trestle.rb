@@ -38,7 +38,7 @@ Trestle.configure do |config|
   # Toggle whether Trestle should automatically mount the admin within your
   # Rails application's routes. Defaults to true.
   #
-  # config.automount = false
+  config.automount = false
 
   # == Navigation Options
   #

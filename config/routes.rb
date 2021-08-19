@@ -1,10 +1,8 @@
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
   get 'contacts/index'
 
   authenticate :user, lambda { |u| u.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
+    mount Trestle::Engine => '/admin'
   end
 
   devise_for :users

@@ -3,6 +3,14 @@ Trestle.resource(:authors) do
     item :authors, icon: "fa fa-star"
   end
 
+  search do |query|
+    if query
+      Author.where("last_name ILIKE ? OR first_name ILIKE ?", "%#{query}%", "%#{query}%")
+    else
+      Author.all
+    end
+  end
+
   # Customize the table columns shown on the index view.
   #
   # table do

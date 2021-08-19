@@ -70,10 +70,10 @@ gem 'ransack'
 gem 'responders'
 gem 'rexml'
 gem 'rubocop', require: false
-gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'simple_form'
 gem 'simple_form-tailwind'
 gem 'trestle'
 gem 'trestle-auth'
+gem 'trestle-search'
 gem 'view_component'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
