@@ -1,9 +1,9 @@
 %div{ data: { controller: 'select' } } 
-  = simple_form_for show, data: { turbo_frame: '_top'} do |f|
+  = simple_form_for show, data: { turbo_frame: '_topp'} do |f|
     = f.input :name, disabled: !policy(show).edit?
     = f.association :authors, include_blank: false, disabled: !policy(show).edit?
-    = f.input :year_written, as: :date, html5: true, disabled: !policy(show).edit?
-    = f.input :copyright_year, as: :date, html5: true, disabled: !policy(show).edit?
+    = f.input :year_written, disabled: !policy(show).edit?
+    = f.input :rights_holder, disabled: !policy(show).edit?
     = f.input :public_domain, disabled: !policy(show).edit?
     - if policy(show).edit?
       = f.button :submit
