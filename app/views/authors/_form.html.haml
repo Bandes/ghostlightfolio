@@ -11,13 +11,13 @@
       = f.input :ethnicity, as: :select, collection: Constants.ethnicities_for_select, input_html: { multiple: true }, class: 'block', include_hidden: false, disabled: !policy(author).edit?
       = f.input :lgbt, disabled: !policy(author).edit?
     - if policy(author).edit?
-      = f.button :submit
-#h3.w-full.mx-auto.my-4.text-l.font-bold
+      = f.button :submit, class: 'float-right my-4'
+#h3.w-full.mx-auto.text-l.font-bold.clear-both
   Shows
   - if policy(author).edit?
     .btn.btn-outline.btn-sm.float-right
       = link_to 'New Show', "shows/new_from_author/#{author.id}", data: { turbo_frame: 'details' }
-%ul.divide-y.divide-gray-100
+%ul.divide-y.divide-gray-100.clear-both
   - author.shows.each do |show|
     %li.p-3.hover:bg-blue-600.hover:text-blue-200
       = link_to show.name, show_path(show), data: { turbo_frame: '_top' }

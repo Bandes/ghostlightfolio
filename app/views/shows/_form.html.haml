@@ -6,10 +6,10 @@
     = f.input :rights_holder, disabled: !policy(show).edit?
     = f.input :public_domain, disabled: !policy(show).edit?
     - if policy(show).edit?
-      = f.button :submit
-#h3.w-full.mx-auto.my-4.text-l.font-bold
+      = f.button :submit, class: 'float-right my-4'
+#h3.w-full.mx-auto.my-8.text-l.font-bold.clear-both
   Roles
-%ul.divide-y.divide-gray-100
+%ul.divide-y.divide-gray-100.clear-both
   - show.roles.each do |role|
     %li.p-3.hover:bg-blue-600.hover:text-blue-200
       = link_to role.name, edit_show_role_path(show_id: show.id, id: role.id)
