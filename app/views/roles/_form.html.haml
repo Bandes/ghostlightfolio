@@ -1,7 +1,7 @@
 %div{ data: { controller: 'select' } } 
   = simple_form_for [role.show, role] do |f|
 
-    = f.input :description
+    = f.input :description, as: :text
     %fieldset.border.border-solid.border-gray-300.p-3.my-4.block
       %legend Demographics
       = render(SimpleModalComponent.new(button_text: 'Why these questions?', message: 'We are collecting demographic data in order to provide a tool where theater professionals can search for plays that will help them achieve their diversity goals.'))
