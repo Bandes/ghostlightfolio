@@ -18,7 +18,7 @@ RSpec.describe Constants do
         ["Caucasian/White", :caucasian], 
         ["Indigenous/First Nations", :indigenous], 
         ["Middle Eastern", :middle_eastern], 
-        ["Hispanic/Latinx", :latinx],
+        ["Hispanic/Latine", :latinx],
         ["South Asian", :south_asian], 
         ["Southeast Asian", :southeast_asian], 
         ["Pacific Islander", :pacific_islander], 
