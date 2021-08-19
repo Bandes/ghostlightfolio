@@ -30,7 +30,7 @@ class ShowsController < ApplicationController
     show.authors = author_records
 
     if show.update(show_params)
-      redirect_to shows_path, notice: 'Show edited successfully'
+      redirect_to show_path(show), notice: 'Show edited successfully'
       show.broadcast_replace_to :shows
     else
       render :edit, locals: { show: show }
@@ -41,7 +41,7 @@ class ShowsController < ApplicationController
     show = Show.new(show_params)
     show.authors = author_records
     if show.save
-      redirect_to shows_path, notice: 'Show created successfully'
+      redirect_to show_path(show), notice: 'Show created successfully'
       show.broadcast_append_to :shows
     else
       render :new, locals: { show: show }

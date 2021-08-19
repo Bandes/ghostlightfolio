@@ -1,5 +1,5 @@
 %div{ data: { controller: 'select' } } 
-  = simple_form_for author do |f|
+  = simple_form_for author, data: { turbo_frame: '_top' } do |f|
     = f.input :first_name, disabled: !policy(author).edit?
     = f.input :last_name, disabled: !policy(author).edit?
 

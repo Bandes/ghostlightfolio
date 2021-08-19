@@ -27,7 +27,7 @@ class AuthorsController < ApplicationController
     author = Author.find(params[:id])
 
     if author.update(author_params)
-      redirect_to authors_path, notice: 'Author edited successfully'
+      redirect_to author_path(author), notice: 'Author edited successfully'
       author.broadcast_replace_to :authors
     else
       render :edit, locals: { author: author }
@@ -37,7 +37,7 @@ class AuthorsController < ApplicationController
   def create
     created_author = Author.new(author_params)
     if created_author.save
-      redirect_to authors_path, notice: 'Author created successfully'
+      redirect_to author_path(created_author), notice: 'Author created successfully'
       created_author.broadcast_append_to :authors
     else
       render :new, locals: { author: created_author }
