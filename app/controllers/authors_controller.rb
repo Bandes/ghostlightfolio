@@ -27,7 +27,7 @@ class AuthorsController < ApplicationController
     author = Author.find(params[:id])
 
     if author.update(author_params)
-      redirect_to authors_path
+      redirect_to authors_path, notice: 'Author edited successfully'
       author.broadcast_replace_to :authors
     else
       render :edit, locals: { author: author }
