@@ -21,6 +21,7 @@ class Show < ApplicationRecord
   has_many :authors, through: :credits
 
   validates :name, presence: true
+  validates :year_written, numericality: { only_integer: true, allow_nil: true }, length: { maximum: 4 }
 
   scope :ethnicity_search, ->(value){ joins(credits: { author: :credits }).includes(:authors, :credits).where("authors.ethnicity @> ?", "{#{value}}") }
 
