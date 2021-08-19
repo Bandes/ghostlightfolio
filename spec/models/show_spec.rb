@@ -22,6 +22,18 @@ RSpec.describe Show, type: :model do
     expect(show.errors.full_messages).to include("Name can't be blank")
   end
 
+  it 'validates year_written is a number' do
+    show = build(:show, year_written: 'abcde')
+    expect(show.valid?).to be false    
+    expect(show.errors.full_messages).to include('Year written is not a number')
+  end
+
+  it 'validates year_written is a less than 4 characters' do
+    show = build(:show, year_written: '12345')
+    expect(show.valid?).to be false    
+    expect(show.errors.full_messages).to include('Year written is too long (maximum is 4 characters)')
+  end
+
   it 'returns a string of author names' do
     show = create(:show, name: 'Lady Wolfman')
     author1 = create(:author, first_name: 'Charles', last_name: 'Bandes')
