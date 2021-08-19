@@ -14,6 +14,9 @@
       = f.button :submit
 #h3.w-full.mx-auto.my-4.text-l.font-bold
   Shows
+  - if policy(author).edit?
+    .btn.btn-outline.btn-sm.float-right
+      = link_to 'New Show', "shows/new_from_author/#{author.id}", data: { turbo_frame: 'details' }
 %ul.divide-y.divide-gray-100
   - author.shows.each do |show|
     %li.p-3.hover:bg-blue-600.hover:text-blue-200

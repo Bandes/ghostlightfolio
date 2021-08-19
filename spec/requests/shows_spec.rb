@@ -53,6 +53,17 @@ RSpec.describe "Shows", type: :request do
       expect(response).to render_template :new
     end
 
+    it '#new_from_author will render the new template' do
+      user = create(:user)
+
+      sign_in user
+      author = create(:author)
+      get "/shows/new_from_author/#{author.id}"
+
+      expect(response).to have_http_status(200)
+      expect(response).to render_template :new
+    end
+
     describe '#create' do
       it 'will create a new show when given good data' do
         user = create(:user)

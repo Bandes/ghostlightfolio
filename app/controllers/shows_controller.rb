@@ -25,6 +25,14 @@ class ShowsController < ApplicationController
     render locals: { show: show }
   end
 
+  def new_from_author
+    show = Show.new
+    author = Author.find(params[:author_id])
+    show.authors << author
+
+    render :new, locals: { show: show }
+  end
+
   def update
     show = Show.find(params[:id])
     show.authors = author_records
