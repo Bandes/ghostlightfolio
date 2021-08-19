@@ -33,6 +33,10 @@ class Author < ApplicationRecord
     ethnicity&.map { |key| Constants::ETHNICITIES[key.to_sym] }
   end
 
+  def gender_value
+    Constants::GENDER_IDENTITIES[gender_identity&.to_sym]
+  end
+
   def self.ransackable_scopes
     %i(ethnicity_search)
   end
