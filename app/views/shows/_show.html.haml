@@ -4,8 +4,10 @@
   %td
     = show.authors_for_display
   %td
-    = show.year_written
+    = Constants::SHOW_TYPES[show.show_type&.to_sym]
   %td
-    = show.rights_holder
+    = Constants::SHOW_GENRES[show.genre&.to_sym]
+  %td
+    = show.year_written
   %td
     = inline_svg_tag 'check.svg' if show.public_domain

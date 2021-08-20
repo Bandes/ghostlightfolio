@@ -71,7 +71,7 @@ class ShowsController < ApplicationController
   end
 
   def show_params
-    params.require(:show).permit(:name, :year_written, :copyright_year, :public_domain)
+    params.require(:show).permit(:name, :year_written, :copyright_year, :public_domain, :show_type, :genre)
   end
 
   def author_records

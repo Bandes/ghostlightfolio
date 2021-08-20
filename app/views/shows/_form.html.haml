@@ -2,6 +2,8 @@
   = simple_form_for show, data: { turbo_frame: '_topp'} do |f|
     = f.input :name, disabled: !policy(show).edit?
     = f.association :authors, include_blank: false, disabled: !policy(show).edit?
+    = f.input :show_type, as: :select, label: 'Type', collection: Constants.show_types_for_select, disabled: !policy(show).edit?
+    = f.input :genre, as: :select, collection: Constants.show_genres_for_select, disabled: !policy(show).edit?
     = f.input :description, as: :text, disabled: !policy(show).edit?
     = f.input :year_written, as: :string, wrapper: :year, disabled: !policy(show).edit?, maxlength: 4
     = f.input :rights_holder, disabled: !policy(show).edit?
