@@ -35,7 +35,7 @@ RSpec.describe Constants do
 
   describe 'show_genres_for_select' do
     it 'returns values as array for simple_form' do
-      expect(described_class.show_genres_for_select).to match_array([["Comedy", :comedy], ["Drama", :drama], ["Documentary", :documentary], ["Serio-Comic", :seriocomic], ["Tragedy", :tragedy], ["Pop-Rock", :rock]])
+      expect(described_class.show_genres_for_select).to match_array([["Comedy", :comedy], ["Drama", :drama], ["Documentary", :documentary], ["Serio-Comic", :seriocomic], ["Tragedy", :tragedy], ["Pop-Rock", :rock], ['Romance', :romance]])
     end
   end
 

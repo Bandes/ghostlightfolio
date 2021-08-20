@@ -39,6 +39,7 @@ class Constants
     seriocomic: 'Serio-Comic',
     tragedy: 'Tragedy',
     rock: 'Pop-Rock',
+    romance: 'Romance',
   }.freeze
 
   def self.gender_identities_for_select
