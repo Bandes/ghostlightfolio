@@ -20,9 +20,12 @@ class Author < ApplicationRecord
   has_many :credits, dependent: :destroy
   has_many :shows, through: :credits
 
-  validates :first_name, uniqueness: { scope: :last_name }, presence: true
-  validates :last_name, uniqueness: { scope: :first_name }, presence: true
+  validates :first_name, uniqueness: { scope: :last_name }
+  validates :last_name, uniqueness: { scope: :first_name }
 
+  validates :first_name, presence: true, unless: ->(author){ author.last_name.present? }
+  validates :last_name, presence: true, unless: ->(author){ author.first_name.present? }
+  
   scope :ethnicity_search, ->(value){ where("ethnicity @> ?", value) }
 
   def bipoc?

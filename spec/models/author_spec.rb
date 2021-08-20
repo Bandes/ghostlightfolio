@@ -15,16 +15,21 @@
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
-  it 'validates presence of first_name' do
-    author = build(:author, first_name: nil)
+  it 'validates presence of first_name and last_name if both are blank' do
+    author = build(:author, first_name: nil, last_name: nil)
     expect(author.valid?).to be false
     expect(author.errors.full_messages).to include "First name can't be blank"
+    expect(author.errors.full_messages).to include "Last name can't be blank"
   end
 
-  it 'validates presence of last_name' do
-    author = build(:author, last_name: nil)
-    expect(author.valid?).to be false
-    expect(author.errors.full_messages).to include "Last name can't be blank"
+  it 'does not validate presence of last_name if first name is present' do
+    author = build(:author, last_name: nil, first_name: 'George')
+    expect(author.valid?).to be true
+  end
+
+  it 'does not validate presence of first_name if last name is present' do
+    author = build(:author, last_name: 'Washington', first_name: nil)
+    expect(author.valid?).to be true
   end
 
   it 'validates uniqueness of first_name and last_name together' do

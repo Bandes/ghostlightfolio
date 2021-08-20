@@ -115,6 +115,7 @@ RSpec.describe "Authors", type: :request do
         params = {
           author: {
             first_name: nil,
+            last_name: nil,
           }
         }
         put author_path(author), params: params
