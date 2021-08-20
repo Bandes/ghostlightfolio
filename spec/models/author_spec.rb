@@ -63,6 +63,16 @@ RSpec.describe Author, type: :model do
     end
   end
 
+  describe 'bipoc scope' do
+    it 'only returns bipoc authors' do
+      caucasian_author = create(:author, ethnicity: ['caucasian'])
+      latin_author = create(:author, ethnicity: ['latinx'])
+      unspecified_author = create(:author, ethnicity: [])
+
+      expect(Author.bipoc).to match_array [latin_author]
+    end
+  end
+
   it 'ransackable_scopes' do
     expect(described_class.ransackable_scopes).to eq([:ethnicity_search])
   end

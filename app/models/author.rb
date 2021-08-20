@@ -27,6 +27,7 @@ class Author < ApplicationRecord
   validates :last_name, presence: true, unless: ->(author){ author.first_name.present? }
 
   scope :ethnicity_search, ->(value){ where("ethnicity @> ?", value) }
+  scope :bipoc, ->{ where.not(ethnicity: ['caucasian']).and(Author.where.not(ethnicity: [])) }
 
   def bipoc?
     ethnicity != ['caucasian']
