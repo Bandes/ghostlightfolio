@@ -12,12 +12,12 @@
       = f.input :lgbt, disabled: !policy(author).edit?
     - if policy(author).edit?
       = f.button :submit, class: 'float-right my-4'
-#h3.w-full.mx-auto.text-l.font-bold.clear-both
+%h3.w-full.mx-auto.text-l.font-bold.clear-both
   Shows
   - if policy(author).edit?
     .btn.btn-outline.btn-sm.float-right
       = link_to 'New Show', "shows/new_from_author/#{author.id}", data: { turbo_frame: 'details' }
-%ul.divide-y.divide-gray-100.clear-both
+%ul#show_list.divide-y.divide-gray-100.clear-both
   - author.shows.each do |show|
     %li.p-3.hover:bg-blue-600.hover:text-blue-200
       = link_to show.name, show_path(show, page: show.page_number(by: :name)), data: { turbo_frame: '_top' }

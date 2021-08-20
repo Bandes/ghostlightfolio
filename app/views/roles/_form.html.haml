@@ -1,6 +1,6 @@
 %div{ data: { controller: 'select' } } 
-  = simple_form_for [role.show, role] do |f|
-
+  = simple_form_for [role.show, role], data: { turbo_frame: '_top' } do |f|
+    = f.input :name
     = f.input :description, as: :text
     %fieldset.border.border-solid.border-gray-300.p-3.my-4.block
       %legend Demographics
