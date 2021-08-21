@@ -4,6 +4,6 @@
       = show.name
       = link_to 'Delete Show', show_path(show), method: 'delete', class: 'btn btn-sm btn-error float-right', data: { confirm: 'Are you sure you want to delete this show? All roles will also be deleted.' } if policy(show).destroy?
     - show.authors.each do |author|
-      .btn.btn-sm.btn-outline
+      .btn.btn-sm.btn-outline.my-1
         = link_to author.full_name, author_path(author), data: { turbo_frame: '_top' }
     = render partial: 'form', locals: { show: show }
