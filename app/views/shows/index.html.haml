@@ -30,7 +30,9 @@
             %li.my-4.block
               = f.label :genre_eq
               = f.select :genre_eq, Constants.show_genres_for_select, include_blank: true
-
+            %li.my-4.block#public_domain
+              = f.label :public_domain_eq
+              = f.select :public_domain_eq, [['Yes', 1], ['No', 0]], include_blank: true
           .modal-action
             %label{ for: "simple-modal", class: "btn btn-outline btn-sm" }
               Cancel
