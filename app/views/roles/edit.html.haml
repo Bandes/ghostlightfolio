@@ -2,4 +2,6 @@
   = turbo_frame_tag 'details' do
     .w-full.mx-auto.my-8.text-xl.font-bold
       = role.name
+      = link_to show_path(role.show), class: 'btn btn-circle btn-outline btn-sm float-right', data: { turbo_frame: '_top' } do
+        %i.fa.fa-times
     = render partial: 'form', locals: { role: role }
