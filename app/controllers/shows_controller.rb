@@ -6,14 +6,14 @@ class ShowsController < ApplicationController
   def index
     @q = Show.joins(%i[credits authors]).includes(%i[credits authors]).ransack(params[:q])
 
-    shows = @q.result(distinct: true).includes(%i[credits authors]).order(:name).page(params[:page])
+    shows = @q.result(distinct: true).includes(%i[credits authors]).page(params[:page])
     render locals: { shows: shows }
   end
 
   def show
     @q = Show.joins(%i[credits authors]).includes(%i[credits authors]).ransack(params[:q])
 
-    shows = @q.result(distinct: true).includes(%i[credits authors]).order(:name).page(params[:page])
+    shows = @q.result(distinct: true).includes(%i[credits authors]).page(params[:page])
     show = Show.find(params[:id])
 
     render locals: { shows: shows, show: show }

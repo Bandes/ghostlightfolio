@@ -30,6 +30,9 @@
             %li.my-4.block
               = f.label :genre_eq
               = f.select :genre_eq, Constants.show_genres_for_select, include_blank: true
+            %li.my-4.block#public_domain
+              = f.label :public_domain_eq
+              = f.select :public_domain_eq, [['Yes', 1], ['No', 0]], include_blank: true
           .modal-action
             %label{ for: "simple-modal", class: "btn btn-outline btn-sm" }
               Cancel
@@ -40,17 +43,23 @@
       %table.table.table-zebra.table-compact.w-full{ data: { controller: 'table-row', highlighted_row: "show_#{show.id}" } }
         %thead
           %th
-            Name
+            %a{ href: sort_url(@q, :name), data: { turbo_frame: '_top' } }
+              Name
           %th
-            Author
+            %a{ href: sort_url(@q, :credits_author_last_name), data: { turbo_frame: '_top' } }
+              Author
           %th
-            Type
+            %a{ href: sort_url(@q, :show_type), data: { turbo_frame: '_top' } }
+              Type
           %th
-            Genre
+            %a{ href: sort_url(@q, :genre), data: { turbo_frame: '_top' } }
+              Genre
           %th
-            Year Written
+            %a{ href: sort_url(@q, :year_written), data: { turbo_frame: '_top' } }
+              Year Written
           %th
-            Public Domain
+            %a{ href: sort_url(@q, :public_domain), data: { turbo_frame: '_top' } }
+              Public Domain
         %tbody
           - shows.each do |show_item|
             = render partial: 'show', locals: { show: show_item }

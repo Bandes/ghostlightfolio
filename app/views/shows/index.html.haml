@@ -42,17 +42,23 @@
       %table.table.table-zebra.w-full.table-compact{ data: { controller: 'table-row' } }
         %thead
           %th
-            Name
+            %a{ href: sort_url(@q, :name), data: { turbo_frame: '_top' } }
+              Name
           %th
-            Author
+            %a{ href: sort_url(@q, 'credits_author_last_name'), data: { turbo_frame: '_top' } }
+              Author
           %th
-            Type
+            %a{ href: sort_url(@q, :show_type), data: { turbo_frame: '_top' } }
+              Type
           %th
-            Genre
+            %a{ href: sort_url(@q, :genre), data: { turbo_frame: '_top' } }
+              Genre
           %th
-            Year Written
+            %a{ href: sort_url(@q, :year_written), data: { turbo_frame: '_top' } }
+              Year Written
           %th
-            Public Domain
+            %a{ href: sort_url(@q, :public_domain), data: { turbo_frame: '_top' } }
+              Public Domain
         %tbody
           - shows.each do |show|
             = render partial: 'show', locals: { show: show }

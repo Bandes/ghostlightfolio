@@ -41,13 +41,17 @@
         %thead
           %tr
             %th
-              Name
+              %a{ href: sort_url(@q, :last_name, [:last_name, 'first_name asc']), data: { turbo_frame: '_top' } }
+                Name
             %th
-              Gender Identity
+              %a{ href: sort_url(@q, :gender_identity), data: { turbo_frame: '_top' } }
+                Gender Identity
             %th
-              Ethnicity
+              %a{ href: sort_url(@q, :ethnicity), data: { turbo_frame: '_top' } }
+                Ethnicity
             %th
-              LGBT
+              %a{ href: sort_url(@q, :lgbt), data: { turbo_frame: '_top' } }
+                LGBT
         %tbody
           - authors.each do |author_item|
             = render partial: 'author', locals: { author: author_item }
