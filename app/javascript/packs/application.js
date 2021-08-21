@@ -17,7 +17,3 @@ import 'controllers'
 global.$ = require('jquery')
 require('select2')
 require('select2/dist/css/select2.min.css')
-require('datatables')
-require("datatables/media/css/jquery.dataTables.min.css")
-
-require('./setupDatatables')

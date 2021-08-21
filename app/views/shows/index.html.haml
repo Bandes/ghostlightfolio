@@ -2,14 +2,15 @@
   .w-full.mx-auto.my-8.text-xl.font-bold
     %h2.float-left
       Shows
-    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right" }
-      Advanced Search
+    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right", title: 'Search' }
+      %i.fa.fa-search.mx-2          
     %input{ type: "checkbox", id: "simple-modal", class: "modal-toggle", style: 'display: none' } 
     .modal
       = search_form_for @q, data: { turbo_frame: '_top' } do |f|
         .modal-box.text-sm.font-light{ data: { controller: 'select' } }
           %h2.text-lg.font-bold
-            Advanced Search
+            %i.fa.fa-search.mx-2          
+            Search
           %ul
             %li.my-4.block#show_name
               = f.label :name_cont
@@ -38,7 +39,7 @@
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6
       = turbo_stream_from :shows
-      %table.hover.stripe{ data: { controller: 'table-row' } }
+      %table.table.table-zebra.w-full.table-compact{ data: { controller: 'table-row' } }
         %thead
           %th
             Name
@@ -55,3 +56,4 @@
         %tbody
           - shows.each do |show|
             = render partial: 'show', locals: { show: show }
+  = paginate shows

@@ -1,0 +1,4 @@
+- if page.current?
+  = link_to page, url, {remote: remote, rel: page.rel, class: 'btn btn-active', data: { turbo_frame: '_top' } }
+- else
+  = link_to page, url, {remote: remote, rel: page.rel, class: 'btn', data: { turbo_frame: '_top' } }
