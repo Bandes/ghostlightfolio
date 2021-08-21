@@ -29,6 +29,10 @@ class Author < ApplicationRecord
   scope :ethnicity_search, ->(value){ where("ethnicity @> ?", value) }
   scope :bipoc, ->{ where.not(ethnicity: ['caucasian']).and(Author.where.not(ethnicity: [])) }
 
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
+
   def bipoc?
     ethnicity != ['caucasian']
   end
@@ -44,4 +48,6 @@ class Author < ApplicationRecord
   def self.ransackable_scopes
     %i(ethnicity_search)
   end
+
+  alias to_label full_name
 end
