@@ -103,7 +103,7 @@ RSpec.describe "Authors", type: :request do
         put author_path(author), params: params
 
         author.reload
-        expect(author.name.full).to eq 'William Shakespeare'
+        expect(author.full_name).to eq 'William Shakespeare'
       end
 
       it 'will render :edit when given invalid data' do

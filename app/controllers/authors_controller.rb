@@ -5,14 +5,14 @@ class AuthorsController < ApplicationController
   
   def index
     @q = Author.ransack(params[:q])
-    authors = @q.result
+    authors = @q.result.order(:last_name).page(params[:page])
 
     render locals: { authors: authors }
   end
 
   def show
     @q = Author.ransack(params[:q])
-    authors = @q.result
+    authors = @q.result.order(:last_name).page(params[:page])
 
     render locals: { authors: authors, author: author }
   end

@@ -2,14 +2,15 @@
   .w-full.mx-auto.my-8.text-xl.font-bold
     %h2.float-left
       Authors
-    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right" }
-      Advanced Search
+    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right", title: 'Search' }
+      %i.fa.fa-search.mx-2     
     %input{ type: "checkbox", id: "simple-modal", class: "modal-toggle", style: 'display: none' } 
     .modal
       = search_form_for @q, data: { turbo_frame: '_top' } do |f|
         .modal-box.text-sm.font-light{ data: { controller: 'select' } }
           %h2.text-lg.font-bold
-            Advanced Search
+            %i.fa.fa-search.mx-2  
+            Search
           %ul
             %li.my-4.block
               = f.label :first_name_cont
@@ -36,17 +37,22 @@
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6
       = turbo_stream_from :authors
-      %table.hover.stripe{ data: { controller: 'table-row' } }
+      %table.table.table-zebra.table-compact.w-full{ data: { controller: 'table-row' } }
         %thead
           %tr
             %th
-              Name
+              %a{ href: sort_url(@q, :last_name), data: { turbo_frame: '_top' } }
+                Name
             %th
-              Gender Identity
+              %a{ href: sort_url(@q, :gender_identity), data: { turbo_frame: '_top' } }
+                Gender Identity
             %th
-              Ethnicity
+              %a{ href: sort_url(@q, :ethnicity), data: { turbo_frame: '_top' } }
+                Ethnicity
             %th
-              LGBT
+              %a{ href: sort_url(@q, :lgbt), data: { turbo_frame: '_top' } }
+                LGBT
         %tbody
           - authors.each do |author|
             = render partial: 'author', locals: { author: author }
+    = paginate authors

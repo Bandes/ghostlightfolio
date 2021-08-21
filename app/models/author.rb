@@ -25,11 +25,16 @@ class Author < ApplicationRecord
 
   validates :first_name, presence: true, unless: ->(author){ author.last_name.present? }
   validates :last_name, presence: true, unless: ->(author){ author.first_name.present? }
-  
+
   scope :ethnicity_search, ->(value){ where("ethnicity @> ?", value) }
+  scope :bipoc, ->{ where.not(ethnicity: ['caucasian']).and(Author.where.not(ethnicity: [])) }
+
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
 
   def bipoc?
-    ethnicity != Constants::ETHNICITIES[:white]
+    ethnicity != ['caucasian']
   end
 
   def ethnicity_values
@@ -43,4 +48,6 @@ class Author < ApplicationRecord
   def self.ransackable_scopes
     %i(ethnicity_search)
   end
+
+  alias to_label full_name
 end

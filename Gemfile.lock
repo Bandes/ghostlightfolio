@@ -349,6 +349,7 @@ DEPENDENCIES
   hotwire-rails
   inline_svg
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.3)
   mail_form
   name_of_person (~> 1.1, >= 1.1.1)

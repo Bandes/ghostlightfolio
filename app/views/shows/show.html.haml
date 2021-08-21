@@ -2,14 +2,15 @@
   .w-full.mx-auto.my-8.text-xl.font-bold
     %span.float-left
       Shows
-    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right" }
-      Advanced Search
+    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right", title: 'Search' }
+      %i.fa.fa-search.mx-2     
     %input{ type: "checkbox", id: "simple-modal", class: "modal-toggle", style: 'display: none' } 
     .modal
       = search_form_for @q, data: { turbo_frame: '_top' } do |f|
         .modal-box.text-sm.font-light{ data: { controller: 'select' } }
           %h2.text-lg.font-bold
-            Advanced Search
+            %i.fa.fa-search.mx-2
+            Search
           %ul
             %li.my-4.block#show_name
               = f.label :name_cont
@@ -29,6 +30,9 @@
             %li.my-4.block
               = f.label :genre_eq
               = f.select :genre_eq, Constants.show_genres_for_select, include_blank: true
+            %li.my-4.block#public_domain
+              = f.label :public_domain_eq
+              = f.select :public_domain_eq, [['Yes', 1], ['No', 0]], include_blank: true
           .modal-action
             %label{ for: "simple-modal", class: "btn btn-outline btn-sm" }
               Cancel
@@ -36,31 +40,36 @@
     = link_to 'Add Show', new_show_path, class: 'btn btn-outline btn-primary mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' } if policy(show).edit?
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6
-      %table.hover.stripe{ data: { controller: 'table-row', highlighted_row: "show_#{show.id}" } }
+      %table.table.table-zebra.table-compact.w-full{ data: { controller: 'table-row', highlighted_row: "show_#{show.id}" } }
         %thead
           %th
-            Name
+            %a{ href: sort_url(@q, :name), data: { turbo_frame: '_top' } }
+              Name
           %th
-            Author
+            %a{ href: sort_url(@q, :credits_author_last_name), data: { turbo_frame: '_top' } }
+              Author
           %th
-            Type
+            %a{ href: sort_url(@q, :show_type), data: { turbo_frame: '_top' } }
+              Type
           %th
-            Genre
+            %a{ href: sort_url(@q, :genre), data: { turbo_frame: '_top' } }
+              Genre
           %th
-            Year Written
+            %a{ href: sort_url(@q, :year_written), data: { turbo_frame: '_top' } }
+              Year Written
           %th
-            Public Domain
+            %a{ href: sort_url(@q, :public_domain), data: { turbo_frame: '_top' } }
+              Public Domain
         %tbody
           - shows.each do |show_item|
             = render partial: 'show', locals: { show: show_item }
+      = paginate shows
 - content_for(:frame) do
-  %div{ class: 'col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4 mx-8' }
-    = turbo_frame_tag 'details' do
-      .w-full.mx-auto.my-8.text-xl.font-bold
-        = show.name
-      = link_to 'Delete Show', show_path(show), method: 'delete', class: 'btn btn-sm btn-error float-right', data: { confirm: 'Are you sure you want to delete this show? All roles will also be deleted.' } if policy(show).destroy?
-    - show.authors.each do |author|
-      .btn.btn-sm.btn-outline
-        = link_to author.name.full, author_path(author), data: { turbo_frame: '_top' }
+  .w-full.mx-auto.my-8.text-xl.font-bold
+    = show.name
+  = link_to 'Delete Show', show_path(show), method: 'delete', class: 'btn btn-sm btn-error float-right', data: { confirm: 'Are you sure you want to delete this show? All roles will also be deleted.' } if policy(show).destroy?
+  - show.authors.each do |author|
+    .btn.btn-sm.btn-outline
+      = link_to author.full_name, author_path(author), data: { turbo_frame: '_top' }
 
-      = render partial: 'form', locals: { show: show }
+  = render partial: 'form', locals: { show: show }

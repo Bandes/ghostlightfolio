@@ -52,14 +52,24 @@ RSpec.describe Author, type: :model do
   end
 
   describe 'bipoc?' do
-    it 'is false if white' do
-      author = create(:author, ethnicity: Constants::ETHNICITIES[:white])
+    it 'is false if caucasian' do
+      author = create(:author, ethnicity: ['caucasian'])
       expect(author.bipoc?).to be false
     end
 
     it 'is true if latinx' do
-      author = create(:author, ethnicity: Constants::ETHNICITIES[:latinx])
+      author = create(:author, ethnicity: ['latinx'])
       expect(author.bipoc?).to be true
+    end
+  end
+
+  describe 'bipoc scope' do
+    it 'only returns bipoc authors' do
+      caucasian_author = create(:author, ethnicity: ['caucasian'])
+      latin_author = create(:author, ethnicity: ['latinx'])
+      unspecified_author = create(:author, ethnicity: [])
+
+      expect(Author.bipoc).to match_array [latin_author]
     end
   end
 

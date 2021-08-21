@@ -28,7 +28,7 @@ class Show < ApplicationRecord
   scope :ethnicity_search, ->(value){ joins(credits: { author: :credits }).includes(:authors, :credits).where("authors.ethnicity @> ?", "{#{value}}") }
 
   def authors_for_display
-    author_array = authors.uniq.map { |author| author.name.full }
+    author_array = authors.uniq.map { |author| author.full_name }
     author_array.join(', ')
   end
 
