@@ -27,7 +27,7 @@ RSpec.describe "Shows", type: :request do
 
       sign_in user
       show = create(:show)
-      get show_path(show)
+      get show_path(show, page: show.page_number(by: :name))
       expect(response).to have_http_status(200)
       expect(response).to render_template :show
     end

@@ -73,6 +73,13 @@ RSpec.describe Author, type: :model do
     end
   end
 
+  describe 'page_number' do
+    it 'returns the correct page number' do
+      author = create(:author)
+      expect(author.page_number(by: :last_name)).to eq 1
+    end
+  end
+
   it 'ransackable_scopes' do
     expect(described_class.ransackable_scopes).to eq([:ethnicity_search])
   end
