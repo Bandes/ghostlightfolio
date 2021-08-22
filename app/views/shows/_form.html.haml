@@ -1,5 +1,5 @@
 %div{ data: { controller: 'select' } } 
-  = simple_form_for show, data: { turbo_frame: '_topp'} do |f|
+  = simple_form_for show, data: { turbo_frame: '_top'} do |f|
     = f.input :name, disabled: !policy(show).edit?
     = f.association :authors, include_blank: false, disabled: !policy(show).edit?
     = f.input :show_type, as: :select, label: 'Type', collection: Constants.show_types_for_select, disabled: !policy(show).edit?
@@ -10,9 +10,10 @@
     = f.input :public_domain, disabled: !policy(show).edit?
     - if policy(show).edit?
       = f.button :submit, class: 'float-right my-4'
-#h3.w-full.mx-auto.my-8.text-l.font-bold.clear-both
+%h3.w-full.mx-auto.my-8.text-l.font-bold.clear-both
   Roles
-%ul.divide-y.divide-gray-100.clear-both
+  = link_to 'Add Role', new_show_role_path(show), class: 'btn btn-sm btn-outline float-right' if policy(show).new?
+%ul#role_list.divide-y.divide-gray-100.clear-both
   - show.roles.each do |role|
     %li.p-3.hover:bg-blue-600.hover:text-blue-200
       = link_to role.name, edit_show_role_path(show_id: show.id, id: role.id)

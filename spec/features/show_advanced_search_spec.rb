@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Show advanced search', js: true do
+RSpec.feature 'Show advanced search' do
 
   describe 'Search by ethnicity' do
     it 'Works!' do
