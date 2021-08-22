@@ -36,4 +36,8 @@ class Show < ApplicationRecord
     %i(ethnicity_search)
   end
 
+  def page_number(by: :id, per: 20)
+    position = Show.joins(%i[credits authors]).includes(%i[credits authors]).where("#{by} <= ?", self.send(by)).count
+    (position.to_f/per).ceil
+  end
 end
