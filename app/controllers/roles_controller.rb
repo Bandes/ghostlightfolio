@@ -22,7 +22,7 @@ class RolesController < ApplicationController
   def create
     role = show.roles.build
     if role.update(role_params)
-      redirect_to show_path(show), notice: 'Role added successfully'
+      redirect_to show_path(show, page: show.page_number(by: :name)), notice: 'Role added successfully'
     else
       render :new, locals: { role: role }
     end
@@ -31,7 +31,7 @@ class RolesController < ApplicationController
   def destroy
     role = Role.find(params[:id])
     role.destroy
-    redirect_to show_path(show), notice: 'Role deleted successfully'
+    redirect_to show_path(show, page: show.page_number(by: :name)), notice: 'Role deleted successfully'
   end
 
   def edit
