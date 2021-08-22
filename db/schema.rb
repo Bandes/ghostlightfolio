@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_011200) do
+ActiveRecord::Schema.define(version: 2021_08_22_185008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acts", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "show_id", null: false
+    t.string "page_numbers"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["show_id"], name: "index_acts_on_show_id"
+  end
 
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
@@ -33,6 +43,16 @@ ActiveRecord::Schema.define(version: 2021_08_20_011200) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_credits_on_author_id"
     t.index ["show_id"], name: "index_credits_on_show_id"
+  end
+
+  create_table "french_scenes", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "scene_id", null: false
+    t.string "page_numbers"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["scene_id"], name: "index_french_scenes_on_scene_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -81,12 +101,22 @@ ActiveRecord::Schema.define(version: 2021_08_20_011200) do
     t.date "closing"
     t.date "opening"
     t.date "rehearsal"
-    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "show_id", null: false
+    t.string "type"
     t.index ["location_id"], name: "index_productions_on_location_id"
     t.index ["show_id"], name: "index_productions_on_show_id"
+  end
+
+  create_table "role_appearances", force: :cascade do |t|
+    t.string "roleable_type", null: false
+    t.bigint "roleable_id", null: false
+    t.bigint "role_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_role_appearances_on_role_id"
+    t.index ["roleable_type", "roleable_id"], name: "index_role_appearances_on_roleable"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -103,6 +133,16 @@ ActiveRecord::Schema.define(version: 2021_08_20_011200) do
     t.boolean "lgbt", default: false
     t.bigint "show_id", null: false
     t.index ["show_id"], name: "index_roles_on_show_id"
+  end
+
+  create_table "scenes", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "act_id", null: false
+    t.string "page_numbers"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["act_id"], name: "index_scenes_on_act_id"
   end
 
   create_table "shows", force: :cascade do |t|
@@ -148,11 +188,15 @@ ActiveRecord::Schema.define(version: 2021_08_20_011200) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "acts", "shows"
   add_foreign_key "credits", "authors"
   add_foreign_key "credits", "shows"
+  add_foreign_key "french_scenes", "scenes"
   add_foreign_key "locations", "users"
   add_foreign_key "people", "users"
   add_foreign_key "productions", "locations"
   add_foreign_key "productions", "shows"
+  add_foreign_key "role_appearances", "roles"
   add_foreign_key "roles", "shows"
+  add_foreign_key "scenes", "acts"
 end
