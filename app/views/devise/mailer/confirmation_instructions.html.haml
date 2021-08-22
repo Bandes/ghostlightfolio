@@ -1,4 +1,22 @@
 %p
-  Welcome #{@email}!
-%p You can confirm your account email through the link below:
+  Welcome to Ghostlight Folio, #{@email}!
+%p We are excited to have you join our project.
+%p 
+  Right now we are still in our infancy and are looking for your feedback regarding what
+  features and improvements would be most useful. At the moment we have a database of 
+  authors and shows, and most shows have role data associated with them. Our data is 
+  still growing and improving - we welcome your additions and edits. If you would like
+  to be a contributor please email us at support@ghostlightfolio.com and let us know, 
+  we will be happy to add you.
+%p
+  For more information, you can view our
+  = link_to 'About page', abouts_url
+  or reach out via our
+  = link_to 'Contact form', contacts_url
+%p 
+  A good next step after confirming your account would be to view 
+  = link_to 'Shows', shows_url
+  or
+  = link_to 'Authors', authors_url
+%p But first, you can confirm your account email through the link below:
 %p= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
