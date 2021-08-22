@@ -2469,9 +2469,9 @@ cyclist@^1.0.1:
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
 daisyui@^1.11.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.12.1.tgz#acf18ce7b95432141f3b86e4dd6b5cf2388e4e9d"
-  integrity sha512-XtkCVBdp7W4HxGclr49EQksWvpQ6VHgD+q2l0ZbY4APUqNdNGZCz9KGBO+89kyvoUYVLmY6jbIHo62eXGcjrSA==
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.13.0.tgz#c7dba4a38d88a84f612fd5acce461324bdd620ff"
+  integrity sha512-EqU3jUTE39gIIJU1/ZR/Owsn30ieyH5CsftYn1JqmhpBAWodYpTlsj+fsJ4u3VD16geuno2OEq/3fQscWRLkog==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
