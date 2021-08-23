@@ -31,7 +31,7 @@ class FrenchScenesController < ApplicationController
     if french_scene.update(french_scene_params)
       redirect_to edit_show_act_scene_path(show, act, scene)
     else
-      render :new, locals: { french_scene: french_scene }
+      render :edit, locals: { french_scene: french_scene }
     end
   end
 
@@ -48,8 +48,8 @@ class FrenchScenesController < ApplicationController
   end
 
   def destroy
-    scene = act.scenes.find(params[:id])
-    scene.destroy
+    french_scene = scene.french_scenes.find(params[:id])
+    french_scene.destroy
     redirect_to edit_show_act_scene_path(show, act, scene), notice: 'Act deleted successfully'
   end
 

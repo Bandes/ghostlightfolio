@@ -3,7 +3,7 @@
     = f.input :name, disabled: !policy(scene).edit?
     = f.input :description, as: :text, disabled: !policy(scene).edit?
 
-    = f.association :roles, collection: scene.show.roles, disabled: !policy(scene).edit?, input_html: { multiple: true }, disabled: !policy(scene).edit?
+    = f.association :roles, collection: scene.show.roles, disabled: !policy(scene).edit?, input_html: { multiple: true }
 
     - if policy(scene).edit?
       = f.button :submit, class: 'float-right my-4'

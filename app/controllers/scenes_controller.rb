@@ -31,7 +31,7 @@ class ScenesController < ApplicationController
     if scene.update(scene_params)
       redirect_to(edit_show_act_path(show, act))
     else
-      render :new, locals: { scene: scene }
+      render :edit, locals: { scene: scene }
     end
   end
 

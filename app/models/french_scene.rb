@@ -24,4 +24,6 @@ class FrenchScene < ApplicationRecord
   has_one :show, through: :act
   has_many :role_appearances, as: :roleable, dependent: :destroy
   has_many :roles, through: :role_appearances
+
+  validates :name, presence: true, uniqueness: { scope: :scene }
 end

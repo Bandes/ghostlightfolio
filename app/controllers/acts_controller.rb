@@ -31,7 +31,7 @@ class ActsController < ApplicationController
     if act.update(act_params)
       redirect_to(show_path(show, page: show.page_number(by: :name)))
     else
-      render :new, locals: { act: act }
+      render :edit, locals: { act: act }
     end
   end
 
