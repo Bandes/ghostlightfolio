@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :authors, only: %w[index new create update destroy edit show]
   resources :contacts, only: %w[index create]
   resources :abouts, only: :index
+  resources :help, only: :index
 end

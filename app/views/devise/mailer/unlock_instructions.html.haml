@@ -1,5 +1,8 @@
-%p
-  Hello #{@resource.email}! This is Ghostlight Folio checking in with some important information about your account.
-%p Your account has been locked due to an excessive number of unsuccessful sign in attempts.
-%p Click the link below to unlock your account:
-%p= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token)
+= stylesheet_link_tag 'email', media: 'all', 'data-turbo-track': 'reload'
+
+%div.text-center.font-sans.w-75.m-4{ role: "article", aria_roledescription: "email", aria_label: "Confirm your signup", lang: "en" }
+  %p
+    Hello #{@resource.email}! This is Ghostlight Folio checking in with some important information about your account.
+  %p Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+  %p Click the link below to unlock your account:
+  %p= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token), class: 'inline-block py-20 px-24 text-sm leading-none no-underline text-white font-semibold uppercase rounded bg-blue-500 hover:bg-blue-600'
