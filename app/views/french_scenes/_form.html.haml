@@ -1,0 +1,8 @@
+%div{ data: { controller: 'select' } } 
+  = simple_form_for [french_scene.show, french_scene.act, french_scene.scene, french_scene] do |f|
+    = f.input :name, disabled: !policy(french_scene).edit?
+    = f.input :description, as: :text, disabled: !policy(french_scene).edit?
+
+    = f.association :roles, collection: french_scene.show.roles, disabled: !policy(french_scene).edit?, input_html: { multiple: true }
+    - if policy(french_scene).edit?
+      = f.button :submit, class: 'float-right my-4'

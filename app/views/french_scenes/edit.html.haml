@@ -1,0 +1,6 @@
+%div{ class: 'col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4 mx-8' }
+  = turbo_frame_tag 'details' do
+    .w-full.mx-auto.my-8.text-xl.font-bold
+      = french_scene.name
+      = link_to 'Delete Scene', show_act_scene_path(french_scene.show, french_scene.act, french_scene), method: 'delete', class: 'btn btn-sm btn-error float-right', data: { confirm: 'Are you sure you want to delete this french scene?' } if policy(french_scene).destroy?
+    = render partial: 'form', locals: { french_scene: french_scene }

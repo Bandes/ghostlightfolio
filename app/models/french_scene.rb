@@ -22,6 +22,6 @@ class FrenchScene < ApplicationRecord
   belongs_to :scene
   has_one :act, through: :scene
   has_one :show, through: :act
-  has_many :role_appearances, as: :roleable
+  has_many :role_appearances, as: :roleable, dependent: :destroy
   has_many :roles, through: :role_appearances
 end

@@ -20,6 +20,9 @@
 #
 class Act < ApplicationRecord
   belongs_to :show
-  has_many :role_appearances, as: :roleable
+  has_many :role_appearances, as: :roleable, dependent: :destroy
   has_many :roles, through: :role_appearances
+  has_many :scenes, dependent: :destroy
+
+  validates :name, presence: true, uniqueness: { scope: :show }
 end
