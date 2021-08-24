@@ -1,0 +1,15 @@
+%div{ class: 'col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4 mx-8' }
+  = turbo_frame_tag 'details' do
+    .w-full.mx-auto.my-8.text-xl.font-bold
+      = scene.name
+      = link_to edit_show_act_path(scene.show, scene.act, page: scene.show.page_number(by: :name)), class: 'btn btn-circle btn-outline btn-sm float-right' do
+        %i.fa.fa-times
+      = link_to 'Delete Scene', show_act_scene_path(scene.show, scene.act, scene), method: 'delete', class: 'btn btn-sm btn-error float-right mx-2', data: { confirm: 'Are you sure you want to delete this scene?' } if policy(scene).destroy?
+    = render partial: 'form', locals: { scene: scene }
+    %h3.w-full.mx-auto.my-8.text-l.font-bold.clear-both
+      French Scenes
+      = link_to 'Add French Scene', new_show_act_scene_french_scene_path(show_id: scene.show.id, act_id: scene.act.id, scene_id: scene.id), class: 'btn btn-sm btn-outline float-right' if policy(scene).new?
+    %ul#act_list.divide-y.divide-gray-100.clear-both
+      - scene.french_scenes.each do |french_scene|
+        %li.p-3.hover:bg-blue-600.hover:text-blue-200
+          = link_to french_scene.name, edit_show_act_scene_french_scene_path(show_id: french_scene.show.id, act_id: french_scene.act.id, scene_id: french_scene.scene.id, id: french_scene.id)

@@ -21,6 +21,7 @@ class Show < ApplicationRecord
   has_many :roles, dependent: :destroy
   has_many :credits, dependent: :destroy
   has_many :authors, through: :credits
+  has_many :acts, dependent: :destroy
 
   validates :name, presence: true
   validates :year_written, numericality: { only_integer: true, allow_nil: true }, length: { maximum: 4 }
