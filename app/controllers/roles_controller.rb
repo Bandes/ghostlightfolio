@@ -2,7 +2,7 @@
 
 class RolesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def update
     role = show.roles.find(params[:id])
 
@@ -15,7 +15,7 @@ class RolesController < ApplicationController
 
   def new
     role = show.roles.build
-    
+
     render locals: { role: role }
   end
 
@@ -40,11 +40,12 @@ class RolesController < ApplicationController
     render locals: { role: role }
   end
 
-  def show 
+  def show
     @show ||= Show.find(params[:show_id])
   end
 
   def role_params
-    params.require(:role).permit(:name, :age_min, :age_max, :description, :ethnicity, :lgbt, :gender_identity, :name, :strong_dancer, :strong_singer)
+    params.require(:role).permit(:name, :age_min, :age_max, :description, :ethnicity, :lgbt, :gender_identity, :name,
+                                 :strong_dancer, :strong_singer)
   end
 end

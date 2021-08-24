@@ -6,7 +6,7 @@ class Constants
     male: 'Male',
     nonbinary: 'Nonbinary',
     trans: 'Trans',
-    other: 'Other',
+    other: 'Other'
   }.freeze
 
   ETHNICITIES = {
@@ -21,7 +21,7 @@ class Constants
     south_asian: 'South Asian',
     southeast_asian: 'Southeast Asian',
     pacific_islander: 'Pacific Islander',
-    other: 'Other',
+    other: 'Other'
   }.freeze
 
   SHOW_TYPES = {
@@ -29,7 +29,7 @@ class Constants
     revue: 'Musical Revue',
     play: 'Play',
     play_with_music: 'Play with Music',
-    operetta: 'Operetta',
+    operetta: 'Operetta'
   }.freeze
 
   SHOW_GENRES = {
@@ -39,7 +39,7 @@ class Constants
     seriocomic: 'Serio-Comic',
     tragedy: 'Tragedy',
     rock: 'Pop-Rock',
-    romance: 'Romance',
+    romance: 'Romance'
   }.freeze
 
   def self.gender_identities_for_select
@@ -57,5 +57,4 @@ class Constants
   def self.show_types_for_select
     SHOW_TYPES.map { |key, value| [value, key] }
   end
-
 end

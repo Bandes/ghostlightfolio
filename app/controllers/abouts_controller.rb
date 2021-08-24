@@ -2,6 +2,6 @@
 
 class AboutsController < ApplicationController
   layout 'plain'
-  
+
   def index; end
 end

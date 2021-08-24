@@ -26,19 +26,13 @@ class Show < ApplicationRecord
   validates :name, presence: true
   validates :year_written, numericality: { only_integer: true, allow_nil: true }, length: { maximum: 4 }
 
-  scope :ethnicity_search, ->(value){ joins(credits: { author: :credits }).includes(:authors, :credits).where("authors.ethnicity @> ?", "{#{value}}") }
-
   def authors_for_display
-    author_array = authors.uniq.map { |author| author.full_name }
+    author_array = authors.uniq.map(&:full_name)
     author_array.join(', ')
   end
 
-  def self.ransackable_scopes
-    %i(ethnicity_search)
-  end
-
   def page_number(by: :id, per: 20)
-    position = Show.joins(%i[credits authors]).includes(%i[credits authors]).where("#{by} <= ?", self.send(by)).count
-    (position.to_f/per).ceil
+    position = Show.joins(%i[credits authors]).includes(%i[credits authors]).where("#{by} <= ?", send(by)).count
+    (position.to_f / per).ceil
   end
 end
