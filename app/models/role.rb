@@ -28,6 +28,7 @@
 #
 class Role < ApplicationRecord
   belongs_to :show
+  has_many :role_appearances, dependent: :destroy
 
   validates :name, uniqueness: { scope: :show }, presence: true
   validates :show_id, presence: true

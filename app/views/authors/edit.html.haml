@@ -1,6 +1,6 @@
 %div{ class: 'col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4 mx-8' }
   = turbo_frame_tag 'details' do
     .w-full.mx-auto.my-8.text-xl.font-bold
-      = author.name&.full
+      = author.full_name
       = link_to 'Delete Author', author_path(author), method: 'delete', class: 'btn btn-sm btn-error float-right', data: { confirm: 'Are you sure you want to delete this author?' } if policy(author).destroy?
     = render partial: 'form', locals: { author: author }

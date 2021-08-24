@@ -1,0 +1,9 @@
+%div{ data: { controller: 'select' } } 
+  = simple_form_for [act.show, act], data: { turbo_frame: '_top' } do |f|
+    = f.input :name, disabled: !policy(act).edit?
+    = f.input :description, as: :text, disabled: !policy(act).edit?
+
+    = f.association :roles, collection: act.show.roles, disabled: !policy(act).edit?, input_html: { multiple: true }
+
+    - if policy(act).edit?
+      = f.button :submit, class: 'float-right my-4'

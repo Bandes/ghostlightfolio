@@ -12,7 +12,13 @@ Rails.application.routes.draw do
   resources :locations, only: %w[index new create update destroy edit]
   resources :shows, only: %w[index new create update destroy edit show] do
     resources :roles, only: %w[edit update new create destroy]
+    resources :acts, only: %w[edit update new create destroy] do
+      resources :scenes, only: %w[edit update new create destroy] do
+        resources :french_scenes, only: %w[edit update new create destroy]
+      end
+    end
   end
+
   get 'shows/new_from_author/:author_id', to: 'shows#new_from_author'
 
   resources :authors, only: %w[index new create update destroy edit show]

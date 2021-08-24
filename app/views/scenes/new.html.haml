@@ -1,0 +1,5 @@
+%div{ class: 'col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4 mx-8' }
+  = turbo_frame_tag 'details' do
+    .w-full.mx-auto.my-8.text-xl.font-bold
+      New Scene
+    = render partial: 'form', locals: { scene: scene }
