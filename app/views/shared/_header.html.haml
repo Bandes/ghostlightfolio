@@ -5,10 +5,13 @@
       = link_to 'Ghostlight Folio', root_path, class:'link text-xl tracking-tight font-black'
   
     .flex-1.px-2.mx-2
-      = link_to contacts_path, class: 'px-4', title: 'Contact Me' do
+      = link_to contacts_path, class: 'px-4 btn btn-ghost btn-sm rounded-btn', title: 'Contact Me' do
         %i{ class: 'fa fa-envelope' }
-      = link_to abouts_path, class: 'px-4', title: 'About' do
+      = link_to abouts_path, class: 'px-4 btn btn-ghost btn-sm rounded-btn', title: 'About' do
+        %i{ class: 'fa fa-info' }
+      = link_to help_index_path, class: 'px-4 btn btn-ghost btn-sm rounded-btn', title: 'Help' do
         %i{ class: 'fa fa-question' }
+        
     .flex-1
       = link_to 'Shows', shows_path, class: 'btn btn-ghost btn-sm rounded-btn'
     .flex-1
