@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Trestle.resource(:roles) do
   menu do
-    item :roles, icon: "fa fa-star"
+    item :roles, icon: 'fa fa-star'
   end
 
   search do |query|
     if query
-      Role.where("name ILIKE ?", "%#{query}%")
+      Role.where('name ILIKE ?', "%#{query}%")
     else
       Role.all
     end

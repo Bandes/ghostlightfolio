@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Trestle.resource(:authors) do
   menu do
-    item :authors, icon: "fa fa-star"
+    item :authors, icon: 'fa fa-star'
   end
 
   search do |query|
     if query
-      Author.where("last_name ILIKE ? OR first_name ILIKE ?", "%#{query}%", "%#{query}%")
+      Author.where('last_name ILIKE ? OR first_name ILIKE ?', "%#{query}%", "%#{query}%")
     else
       Author.all
     end

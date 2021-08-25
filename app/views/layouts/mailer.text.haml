@@ -1,1 +1,12 @@
-= yield
+!!!
+%html
+  %head
+    %head
+      %meta{ content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+      %meta{ name: "x-apple-disable-message-reformatting" }
+      %meta{ http_equiv: "x-ua-compatible", content: "ie=edge" }
+      %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
+      %meta{ name: "format-detection", content: "telephone=no, date=no, address=no, email=no" }
+      = stylesheet_link_tag 'email', media: 'all', 'data-turbo-track': 'reload'
+  %body.bg-gray-200.h-full
+    = yield

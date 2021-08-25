@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AuthorPolicy < ApplicationPolicy
   attr_reader :user, :author
 
@@ -5,5 +7,4 @@ class AuthorPolicy < ApplicationPolicy
     @user = user
     @author = author
   end
-
 end

@@ -2,7 +2,7 @@
 
 class LocationsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     locations = current_user.locations
 

@@ -2,7 +2,7 @@
 
 class ShowsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @q = Show.joins(%i[credits authors]).includes(%i[credits authors]).ransack(params[:q])
 
