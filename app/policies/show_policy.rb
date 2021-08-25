@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ShowPolicy < ApplicationPolicy
   attr_reader :user, :show
 
@@ -5,5 +7,4 @@ class ShowPolicy < ApplicationPolicy
     @user = user
     @show = show
   end
-
 end

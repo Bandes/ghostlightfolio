@@ -2,7 +2,7 @@
 
 class AuthorsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @q = Author.ransack(params[:q])
     authors = @q.result.order(:last_name).page(params[:page])

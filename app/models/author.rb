@@ -23,11 +23,11 @@ class Author < ApplicationRecord
   validates :first_name, uniqueness: { scope: :last_name }
   validates :last_name, uniqueness: { scope: :first_name }
 
-  validates :first_name, presence: true, unless: ->(author){ author.last_name.present? }
-  validates :last_name, presence: true, unless: ->(author){ author.first_name.present? }
+  validates :first_name, presence: true, unless: ->(author) { author.last_name.present? }
+  validates :last_name, presence: true, unless: ->(author) { author.first_name.present? }
 
-  scope :ethnicity_search, ->(value){ where("ethnicity @> ?", value) }
-  scope :bipoc, ->{ where.not(ethnicity: ['caucasian']).and(Author.where.not(ethnicity: [])) }
+  scope :ethnicity_search, ->(value) { where('ethnicity @> ?', value) }
+  scope :bipoc, -> { where.not(ethnicity: ['caucasian']).and(Author.where.not(ethnicity: [])) }
 
   def full_name
     "#{first_name} #{last_name}".strip
@@ -46,7 +46,7 @@ class Author < ApplicationRecord
   end
 
   def self.ransackable_scopes
-    %i(ethnicity_search)
+    %i[ethnicity_search]
   end
 
   alias to_label full_name

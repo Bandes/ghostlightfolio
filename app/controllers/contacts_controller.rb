@@ -1,5 +1,6 @@
-class ContactsController < ApplicationController
+# frozen_string_literal: true
 
+class ContactsController < ApplicationController
   before_action :contact_params, only: [:create]
 
   layout 'plain'
@@ -16,9 +17,8 @@ class ContactsController < ApplicationController
   end
 
   private
-  
+
   def contact_params
     params.require(:contact_form).permit(:name, :email, :message, :nickname, :request_editor_access, :captcha)
   end
-
 end

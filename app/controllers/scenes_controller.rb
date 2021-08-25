@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-class ScenesController < ApplicationController  
+class ScenesController < ApplicationController
   layout 'plain'
 
   def new
     scene = act.scenes.build
-    
+
     render locals: { scene: scene }
   end
 
   def create
     scene = act.scenes.build
-  
+
     if scene.update(scene_params)
       redirect_to(edit_show_act_path(show, act))
     else
@@ -52,5 +52,4 @@ class ScenesController < ApplicationController
   def scene_params
     params.require(:scene).permit(:name, :description, role_ids: [])
   end
-
 end

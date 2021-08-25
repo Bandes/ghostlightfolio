@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Trestle.resource(:users) do
   menu do
-    item :users, icon: "fa fa-star"
+    item :users, icon: 'fa fa-star'
   end
 
   search do |query|
     if query
-      User.where("first_name ILIKE ? OR last_name ILIKE ?", "%#{query}%", "%#{query}%")
+      User.where('first_name ILIKE ? OR last_name ILIKE ?', "%#{query}%", "%#{query}%")
     else
       User.all
     end
@@ -13,7 +15,7 @@ Trestle.resource(:users) do
 
   # Customize the table columns shown on the index view.
   #
-  table do |user|
+  table do |_user|
     column :first_name
     column :last_name
     column :email
@@ -27,7 +29,7 @@ Trestle.resource(:users) do
     actions
   end
 
-  form do |user|
+  form do |_user|
     text_field :first_name
     text_field :last_name
     check_box :editor

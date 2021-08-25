@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: scenes
@@ -26,5 +28,4 @@ class Scene < ApplicationRecord
   has_many :french_scenes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: { scope: :act }
-
 end

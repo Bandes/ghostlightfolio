@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-class FrenchScenesController < ApplicationController  
+class FrenchScenesController < ApplicationController
   layout 'plain'
 
   def new
     french_scene = scene.french_scenes.build
-    
+
     render locals: { french_scene: french_scene }
   end
 
   def create
     french_scene = scene.french_scenes.build
-  
+
     if french_scene.update(french_scene_params)
       redirect_to edit_show_act_scene_path(show, act, scene)
     else
@@ -56,5 +56,4 @@ class FrenchScenesController < ApplicationController
   def french_scene_params
     params.require(:french_scene).permit(:name, :description, role_ids: [])
   end
-
 end

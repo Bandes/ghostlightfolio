@@ -32,3 +32,6 @@ This code is going to be open-source and publicly available but I am also planni
 * Rails 6.1.4
 * Tailwind CSS
 * Hotwire (Turbo and Stimulus)
+
+## Attribution
+Logo is derived from works on the Noun Project by Robert A. Di Ieso and Mohamed Mb

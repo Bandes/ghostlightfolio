@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ScenePolicy < ApplicationPolicy
   attr_reader :user, :scene
 
@@ -5,5 +7,4 @@ class ScenePolicy < ApplicationPolicy
     @user = user
     @scene = scene
   end
-
 end

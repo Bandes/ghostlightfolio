@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RolePolicy < ApplicationPolicy
   attr_reader :user, :role
 
@@ -5,5 +7,4 @@ class RolePolicy < ApplicationPolicy
     @user = user
     @role = role
   end
-
 end

@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Trestle.resource(:shows) do
   menu do
-    item :shows, icon: "fa fa-star"
+    item :shows, icon: 'fa fa-star'
   end
 
   search do |query|
     if query
-      Show.where("name ILIKE ?", "%#{query}%")
+      Show.where('name ILIKE ?', "%#{query}%")
     else
       Show.all
     end
@@ -19,7 +21,7 @@ Trestle.resource(:shows) do
   #   actions
   # end
 
-  form do |show|
+  form do |_show|
     text_field :name
     text_field :description
     text_field :year_written
