@@ -57,6 +57,8 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'caxlsx'
+gem 'caxlsx_rails'
 gem 'devise', github: 'ghiculescu/devise', branch: 'error-code-422' # https://github.com/heartcombo/devise/pull/5340 not yet merged
 gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'

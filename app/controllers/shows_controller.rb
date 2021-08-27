@@ -16,7 +16,10 @@ class ShowsController < ApplicationController
     shows = @q.result(distinct: true).order(:name).includes(%i[credits authors]).page(params[:page])
     show = Show.find(params[:id])
 
-    render locals: { shows: shows, show: show }
+    respond_to do |format|
+      format.html { render locals: { shows: shows, show: show } }
+      format.xlsx { render locals: { show: show } }
+    end
   end
 
   def new
