@@ -47,7 +47,4 @@ RSpec.describe Show, type: :model do
     expect(show.authors_for_display).to eq('Charles Bandes, George Washington')
   end
 
-  it 'ransackable_scopes' do
-    expect(described_class.ransackable_scopes).to eq([:ethnicity_search])
-  end
 end
