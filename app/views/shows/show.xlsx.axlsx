@@ -1,10 +1,16 @@
 wb = xlsx_package.workbook
 
 wb.add_worksheet(name: show.name) do |sheet|
-  columns = show.columns_for_chart
-  sheet.add_row columns
+  title = sheet.styles.add_style(b: true, sz: 18)
+  headings = sheet.styles.add_style(:bg_color => "000000", :fg_color=>"FFFFFF", :sz=>14,  :border=>Axlsx::STYLE_THIN_BORDER)
+
+  exporter = ShowXlsxGenerator.new(show: show)
+  columns = exporter.act_columns
+  sheet.add_row ["Scenes and Roles for #{show.name}"], style: title
+  sheet.add_row
+  sheet.add_row columns, style: headings
   # Create entries for each item
-  show.act_role_chart_data.each do |row|
+  exporter.role_act_chart_data.each do |row|
     sheet.add_row row
   end
 end

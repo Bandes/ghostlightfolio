@@ -18,7 +18,7 @@ class ShowsController < ApplicationController
 
     respond_to do |format|
       format.html { render locals: { shows: shows, show: show } }
-      format.xlsx { render locals: { show: show } }
+      format.xlsx { render locals: { show: show, xlsx_author: 'Ghostlight Folio' } }
     end
   end
 
