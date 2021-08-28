@@ -16,7 +16,7 @@
   .collapse-content
     = link_to 'Add Role', new_show_role_path(show), class: 'btn btn-sm btn-outline float-right' if policy(show).new?
     %ul#role_list.divide-y.divide-gray-100.clear-both
-      - show.roles.each do |role|
+      - show.roles.order(:name).each do |role|
         %li.p-3.hover:bg-blue-600.hover:text-blue-200
           = link_to role.name, edit_show_role_path(show_id: show.id, id: role.id)
   
@@ -26,6 +26,6 @@
   .collapse-content
     = link_to 'Add Act', new_show_act_path(show), class: 'btn btn-sm btn-outline float-right' if policy(show).new?
     %ul#act_list.divide-y.divide-gray-100.clear-both
-      - show.acts.each do |act|
+      - show.acts.order(:name).each do |act|
         %li.p-3.hover:bg-blue-600.hover:text-blue-200
           = link_to act.name, edit_show_act_path(show_id: show.id, id: act.id)
