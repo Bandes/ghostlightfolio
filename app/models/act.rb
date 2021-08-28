@@ -25,6 +25,7 @@ class Act < ApplicationRecord
   has_many :role_appearances, as: :roleable, dependent: :destroy
   has_many :roles, through: :role_appearances
   has_many :scenes, dependent: :destroy
+  has_many :french_scenes, through: :scenes
 
   validates :name, presence: true, uniqueness: { scope: :show }
 end

@@ -22,6 +22,8 @@ class Show < ApplicationRecord
   has_many :credits, dependent: :destroy
   has_many :authors, through: :credits
   has_many :acts, dependent: :destroy
+  has_many :scenes, through: :acts
+  has_many :french_scenes, through: :scenes
 
   validates :name, presence: true
   validates :year_written, numericality: { only_integer: true, allow_nil: true }, length: { maximum: 4 }
