@@ -154,3 +154,13 @@
     }
   }
 }
+
+li.search-row {
+  clear: both;
+  .search-label {
+    float: left;
+  }
+  .search-field {
+    float: right;
+  }
+}

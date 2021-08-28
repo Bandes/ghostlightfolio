@@ -1,0 +1,11 @@
+li.search-row {
+  clear: both;
+  margin-bottom: 1rem;
+  .search-label {
+    float: left;
+  }
+  .search-field, .select2 {
+    float: right;
+    margin-bottom: 1rem;
+  }
+}

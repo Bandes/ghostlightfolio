@@ -9,23 +9,23 @@
       = search_form_for @q, data: { turbo_frame: '_top' } do |f|
         .modal-box.text-sm.font-light{ data: { controller: 'select' } }
           %h2.text-lg.font-bold
-            %i.fa.fa-search.mx-2     
+            %i.fa.fa-search.mx-2  
             Search
           %ul
-            %li.my-4.block
-              = f.label :first_name_cont
-              = f.search_field :first_name_cont, class: 'input input-bordered'
-            %li.my-4.block
-              = f.label :last_name_cont
-              = f.search_field :last_name_cont, class: 'input input-bordered'
-            %li.my-4.block
-              = f.label :ethnicity_contains
+            %li.my-4.block.search-row
+              = f.label :first_name_cont, 'First name', class: 'search-label'
+              = f.search_field :first_name_cont, class: 'input input-bordered search-field ml-4'
+            %li.my-4.block.search-row
+              = f.label :last_name_cont, 'Last name'
+              = f.search_field :last_name_cont, class: 'input input-bordered search-field ml-4'
+            %li.my-4.block.search-row
+              = f.label :ethnicity_contains, 'Ethnicity', class: 'search-label'
               = f.select :ethnicity_contains, Constants.ethnicities_for_select, include_blank: true
-            %li.my-4.block
-              = f.label :gender_identity_eq
+            %li.my-4.block.search-row
+              = f.label :gender_identity_eq, 'Gender identity', class: 'search-label'
               = f.select :gender_identity_eq, Constants.gender_identities_for_select, include_blank: true
-            %li.my-4.block#author_lgbt
-              = f.label :lgbt_eq
+            %li.my-4.block.search-row#author_lgbt
+              = f.label :lgbt_eq, 'LGBT?'
               = f.select :lgbt_eq, [['Yes', 1], ['No', 0]], include_blank: true
 
           .modal-action
