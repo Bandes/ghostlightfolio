@@ -6,7 +6,7 @@ wb.add_worksheet(name: show.name) do |sheet|
 
   exporter = ShowXlsxGenerator.new(show: show)
   columns = exporter.act_columns
-  sheet.add_row ["Scenes and Roles for #{show.name}"], style: title
+  sheet.add_row [show.name], style: title
   sheet.add_row
   sheet.add_row columns, style: headings
   # Create entries for each item
