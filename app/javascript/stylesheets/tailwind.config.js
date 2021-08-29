@@ -820,17 +820,17 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        'ghostlight': {                          /* your theme name */
-          'primary' : '#C3743C',           /* Primary color */
-          'primary-focus' : '#a25921',     /* Primary color - focused */
-          'primary-content' : '#ffffff',   /* Foreground content color to use on primary color */
+        'ghostlight': {                  /* your theme name */
+          'primary': '#3c48c3',
+          'primary-focus': '#2129a2',
+          'primary-content': '#ffffff',
 
           'secondary' : '#3cc3b7',         /* Secondary color */
           'secondary-focus' : '#21a299',   /* Secondary color - focused */
           'secondary-content' : '#ffffff', /* Foreground content color to use on secondary color */
 
-          'accent' : '#3c48c3',            /* Accent color */
-          'accent-focus' : '#2129a2',      /* Accent color - focused */
+          'accent' : '#C3743C',            /* Accent color */
+          'accent-focus' : '#a25921',      /* Accent color - focused */
           'accent-content' : '#ffffff',    /* Foreground content color to use on accent color */
 
           'neutral' : '#3d4451',           /* Neutral color */
