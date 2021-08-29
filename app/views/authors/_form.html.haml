@@ -19,5 +19,5 @@
       = link_to 'New Show', "shows/new_from_author/#{author.id}", data: { turbo_frame: 'details' }
 %ul#show_list.divide-y.divide-gray-100.clear-both
   - author.shows.each do |show|
-    %li.p-3.hover:bg-blue-600.hover:text-blue-200
+    %li.p-3.hover:bg-primary.hover:text-primary-content
       = link_to show.name, show_path(show, page: show.page_number(by: :name)), data: { turbo_frame: '_top' }

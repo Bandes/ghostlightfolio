@@ -11,5 +11,5 @@
       = link_to 'Add French Scene', new_show_act_scene_french_scene_path(show_id: scene.show.id, act_id: scene.act.id, scene_id: scene.id), class: 'btn btn-sm btn-secondary float-right' if policy(scene).new?
     %ul#act_list.divide-y.divide-gray-100.clear-both
       - scene.french_scenes.order(:name).each do |french_scene|
-        %li.p-3.hover:bg-blue-600.hover:text-blue-200
+        %li.p-3.hover:bg-primary.hover:text-primary-content
           = link_to french_scene.name, edit_show_act_scene_french_scene_path(show_id: french_scene.show.id, act_id: french_scene.act.id, scene_id: french_scene.scene.id, id: french_scene.id)
