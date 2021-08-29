@@ -15,7 +15,7 @@
 %h3.w-full.mx-auto.text-l.font-bold.clear-both
   Shows
   - if policy(author).edit?
-    .btn.btn-outline.btn-sm.float-right
+    .btn.btn-secondary.btn-sm.float-right
       = link_to 'New Show', "shows/new_from_author/#{author.id}", data: { turbo_frame: 'details' }
 %ul#show_list.divide-y.divide-gray-100.clear-both
   - author.shows.each do |show|
