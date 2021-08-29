@@ -2,9 +2,9 @@
   .w-full.mx-auto.my-8.text-xl.font-bold
     %h2.float-left
       Shows
-    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right", title: 'Search' }
+    %label#advanced_search_link{ for: "search-modal", class: "btn btn-primary modal-button float-right", title: 'Search' }
       %i.fa.fa-search.mx-2          
-    %input{ type: "checkbox", id: "simple-modal", class: "modal-toggle", style: 'display: none' } 
+    %input{ type: "checkbox", id: "search-modal", class: "modal-toggle", style: 'display: none' } 
     .modal.clearfix
       = search_form_for @q, data: { turbo_frame: '_top' } do |f|
         .modal-box.text-sm.font-light{ data: { controller: 'select' } }
@@ -40,10 +40,10 @@
               = f.label :public_domain_eq, 'Public Domain?', class: 'search-label'
               = f.select :public_domain_eq, [['Yes', 1], ['No', 0]], include_blank: true, class: 'search-field'
           .modal-action.clear-both
-            %label{ for: "simple-modal", class: "btn btn-outline btn-sm float-right" }
+            %label{ for: "search-modal", class: "btn btn-outline btn-sm float-right" }
               Cancel
             = f.submit class: 'btn btn-primary btn-sm float-right'
-    = link_to 'Add Show', new_show_path, class: 'btn btn-outline mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' } if policy(shows).edit?
+    = link_to 'Add Show', new_show_path, class: 'btn btn-primary mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' } if policy(shows).edit?
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6
       = turbo_stream_from :shows

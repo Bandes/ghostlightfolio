@@ -2,9 +2,9 @@
   .w-full.mx-auto.my-8.text-xl.font-bold
     %h2.float-left
       Authors
-    %label#advanced_search_link{ for: "simple-modal", class: "btn btn-outline modal-button float-right", title: 'Search' }
+    %label#advanced_search_link{ for: "search-modal", class: "btn btn-primary modal-button float-right", title: 'Search' }
       %i.fa.fa-search.mx-2     
-    %input{ type: "checkbox", id: "simple-modal", class: "modal-toggle", style: 'display: none' } 
+    %input{ type: "checkbox", id: "search-modal", class: "modal-toggle", style: 'display: none' } 
     .modal
       = search_form_for @q, data: { turbo_frame: '_top' } do |f|
         .modal-box.text-sm.font-light{ data: { controller: 'select' } }
@@ -29,11 +29,11 @@
               = f.select :lgbt_eq, [['Yes', 1], ['No', 0]], include_blank: true
 
           .modal-action
-            %label{ for: "simple-modal", class: "btn btn-outline btn-sm" }
+            %label{ for: "search-modal", class: "btn btn-outline btn-sm" }
               Cancel
             = f.submit class: 'btn btn-primary btn-sm'
 
-    = link_to 'Add Author', new_author_path, class: 'btn btn-outline mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' } if policy(authors).edit?
+    = link_to 'Add Author', new_author_path, class: 'btn btn-primary mb-2 lg:mr-2 lg:mb-0 float-right', data: { turbo_frame: 'details' } if policy(authors).edit?
   .w-full.lg.overflow-auto
     .bg-white.rounded.my-6
       = turbo_stream_from :authors
