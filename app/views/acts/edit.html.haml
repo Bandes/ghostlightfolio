@@ -8,7 +8,7 @@
     = render partial: 'form', locals: { act: act }
     %h3.w-full.mx-auto.my-8.text-l.font-bold.clear-both
       Scenes
-      = link_to 'Add Scene', new_show_act_scene_path(act_id: act.id, show_id: act.show.id, id: act.id), class: 'btn btn-sm btn-outline float-right' if policy(act).new?
+      = link_to 'Add Scene', new_show_act_scene_path(act_id: act.id, show_id: act.show.id, id: act.id), class: 'btn btn-sm btn-secondary float-right' if policy(act).new?
     %ul#act_list.divide-y.divide-gray-100.clear-both
       - act.scenes.order(:name).each do |scene|
         %li.p-3.hover:bg-blue-600.hover:text-blue-200
