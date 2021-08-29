@@ -8,7 +8,7 @@
     = render partial: 'form', locals: { scene: scene }
     %h3.w-full.mx-auto.my-8.text-l.font-bold.clear-both
       French Scenes
-      = link_to 'Add French Scene', new_show_act_scene_french_scene_path(show_id: scene.show.id, act_id: scene.act.id, scene_id: scene.id), class: 'btn btn-sm btn-outline float-right' if policy(scene).new?
+      = link_to 'Add French Scene', new_show_act_scene_french_scene_path(show_id: scene.show.id, act_id: scene.act.id, scene_id: scene.id), class: 'btn btn-sm btn-secondary float-right' if policy(scene).new?
     %ul#act_list.divide-y.divide-gray-100.clear-both
       - scene.french_scenes.order(:name).each do |french_scene|
         %li.p-3.hover:bg-blue-600.hover:text-blue-200
