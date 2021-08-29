@@ -11,5 +11,5 @@
       = link_to 'Add Scene', new_show_act_scene_path(act_id: act.id, show_id: act.show.id, id: act.id), class: 'btn btn-sm btn-secondary float-right' if policy(act).new?
     %ul#act_list.divide-y.divide-gray-100.clear-both
       - act.scenes.order(:name).each do |scene|
-        %li.p-3.hover:bg-blue-600.hover:text-blue-200
+        %li.p-3.hover:bg-primary.hover:text-primary-content
           = link_to scene.name, edit_show_act_scene_path(show_id: scene.show.id, act_id: scene.act.id, id: scene.id)
